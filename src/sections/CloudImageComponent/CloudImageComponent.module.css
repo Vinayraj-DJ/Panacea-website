@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+
+.container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 60px 20px;
+background: linear-gradient(90deg, rgba(255,247,250,1) 0%, rgba(241,250,255,1) 100%);
+font-family: "Roboto Serif", serif;
+}
+
+.imageWrapper {
+width: 100%;
+max-width: 1217px;
+border-radius: 12px;
+overflow: hidden;
+/* box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); */
+margin-top: 40px;
+}
+
+
+.fullImage {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 12px;
+}

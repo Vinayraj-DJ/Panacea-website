@@ -1,0 +1,260 @@
+/* KnowEverythingSection.module.css */
+
+/* Soft cream -> pink gradient like your other sections */
+.section {
+    padding: 32px 20px 72px;
+    background: linear-gradient(to right, #fff7ea 30%, #f6e9ff 80%);
+    color: #333;
+}
+
+/* Two-column layout */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+/* Content (left) */
+.content {
+    padding: 0;
+}
+
+/* Typography */
+.title {
+    font-family: "Roboto Serif", serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #436fb0;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.text {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0 0 16px;
+}
+
+.cta {
+    margin-top: 10px;
+}
+
+/* Right image */
+.imageWrap {
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .imageWrap {
+        order: 2;
+        justify-self: start;
+    }
+
+    .image {
+        max-width: 680px;
+    }
+}
+
+/* Slight tweak for very narrow phones */
+@media (max-width: 560px) {
+    .title {
+        font-size: 24px;
+    }
+}
+
+/* MOBILE: <= 768px — stack, tighter spacing, image below text */
+/* Also: hide desktop CTA and show mobile CTA (duplicate in DOM) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: start;
+        padding: 0 16px;
+    }
+
+    .content {
+        order: 1;
+        width: 100%;
+    }
+
+    .imageWrap {
+        order: 2;
+        /* image under text */
+        justify-self: center;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .title {
+        font-size: 20px;
+        line-height: 1.35;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+
+    /* CTA visibility helpers */
+    .desktopOnly {
+        display: none !important;
+    }
+
+    .mobileOnly {
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
+        padding: 0 8px;
+    }
+
+    /* Make mobile button full-width up to a cap */
+    .mobileOnly :global(button),
+    .mobileOnly button,
+    .mobileOnly .button {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+/* Desktop: show desktop CTA, hide mobile CTA helper */
+@media (min-width: 769px) {
+    .section {
+            padding: 32px 20px 42px;
+            background: linear-gradient(to right, #fff7ea 30%, #f6e9ff 80%);
+            color: #333;
+        }
+    .desktopOnly {
+        display: block;
+    }
+
+    .mobileOnly {
+        display: none;
+    }
+}
+
+/* ===== Toast (module-scoped) — TOP center ===== */
+.toastContainer {
+    position: fixed;
+    top: 16px;
+    /* appear at top of viewport */
+    left: 16px;
+    right: 16px;
+    z-index: 1400;
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    pointer-events: none;
+}
+
+.toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 260px;
+    max-width: 560px;
+    background: linear-gradient(90deg, #69b7d6 0%, #59c2b2 65%);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.16);
+    font-family: var(--Font_Family, "Roboto Serif", serif);
+    font-size: 14px;
+    line-height: 1.3;
+    position: relative;
+    animation: toastIn 240ms ease-out;
+}
+
+/* message text inside toast */
+.toastMessage {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+/* close button */
+.toastClose {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    line-height: 1;
+}
+
+/* progress timer bar at bottom of toast */
+.toastTimer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.75);
+    width: 100%;
+    animation: toastTimerAnim 4s linear forwards;
+    border-radius: 0 0 8px 8px;
+}
+
+/* entrance animation */
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* timer shrink */
+@keyframes toastTimerAnim {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* Helper: ensure images don't overflow container on tiny phones */
+@media (max-width: 360px) {
+    .image {
+        max-width: 320px;
+    }
+}

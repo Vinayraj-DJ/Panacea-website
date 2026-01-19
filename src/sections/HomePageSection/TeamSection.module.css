@@ -1,0 +1,276 @@
+/* Section */
+.section {
+    
+    border-radius: 24px;
+    padding: clamp(20px, 4vw, 44px);
+    margin: 0px 0px 50px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.64);
+    color: #2b2b2b;
+    position: relative;
+    font-family: "Roboto Serif", serif;
+}
+
+/* Add a soft overlay */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: radial-gradient(120% 120% at 20% 10%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+/* Inner wrapper */
+.inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Roboto Serif", serif;
+}
+
+/* Header row */
+.topBar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "kicker cta" "title cta";
+    align-items: center;
+    gap: 10px 10px;
+}
+
+/* Kicker */
+.kicker {
+    grid-area: kicker;
+    font-family: "Roboto Serif", serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0.9;
+    font-size: clamp(16px, 2.2vw, 24px);
+}
+
+/* Title */
+.title {
+    grid-area: title;
+    margin: 0;
+    font-family: "Roboto Serif", serif;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: clamp(28px, 4.6vw, 42px);
+    color: #2b2b2b;
+}
+
+.title span {
+    color: #2d6ab1;
+    font-weight: 700;
+    font-family: "Roboto Serif", serif;
+}
+
+/* Call-to-action button */
+.cta {
+    grid-area: cta;
+    border: 0;
+    background: #3b68b2;
+    color: #fff;
+    border-radius: 999px;
+    padding: 14px 26px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 8px 18px rgba(59, 104, 178, 0.25);
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: "Roboto Serif", serif;
+}
+
+/* Cards grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: clamp(24px, 4vw, 48px) 38px;
+    font-family: "Roboto Serif", serif;
+}
+
+/* Cards */
+.card {
+    text-align: center;
+    font-family: "Roboto Serif", serif;
+}
+
+.avatarWrap {
+    position: relative;
+    width: 175px;
+    height: 175px;
+    max-width: 56vw;
+    margin: 0 auto 3px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Decorative dots */
+.dot {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+}
+
+.dotDark {
+    right: -16px;
+    top: 8px;
+    background: rgba(21, 34, 49, 0.85);
+}
+
+.dotAccent {
+    right: -10px;
+    bottom: 10px;
+    background: #d27b1e;
+}
+
+/* Name and Role */
+.name {
+    font-family: "Roboto Serif", serif;
+    font-weight: 700;
+    color: #2d6ab1;
+    font-size: clamp(16px, 2.2vw, 20px);
+    margin-bottom: 6px;
+}
+
+.role {
+    font-family: "Roboto Serif", serif;
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: rgba(0, 0, 0, 0.65);
+}
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+    .cta {
+            display: flex;
+            grid-area: cta;
+            border: 0;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            background: #3b68b2;
+            color: #fff;
+            border-radius: 999px;
+            padding: 14px 26px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 8px 18px rgba(59, 104, 178, 0.25);
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: "Roboto Serif", serif;
+        }
+    .grid {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+    }
+}
+
+/* ------------------ MOBILE / TABLET (keep only mobile view rules) ------------------ */
+
+/* Tablet / Phone landscape and smaller (stack header, 2-column grid) */
+@media (max-width: 820px) {
+  /* Stack top bar vertically and left-align */
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Ensure CTA sits below title and left-aligned */
+  .ctaContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Grid -> 2 columns for phones/tablet landscape */
+  .grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: clamp(16px, 3vw, 32px) 16px;
+    margin-top: 20px;
+  }
+
+  .avatarWrap {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cta {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  /* Toast: centered and full-width inside safe margins */
+  .toastWrapper {
+    top: 22px;
+    left: 16px;
+    right: 16px;
+    justify-content: center;
+  }
+  .topToast {
+    width: 100%;
+    max-width: 640px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: clamp(12px, 2.5vw, 24px) 12px;
+  }
+
+  .avatarWrap {
+    width: 120px;
+    height: 120px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+  .role {
+    font-size: 13px;
+  }
+
+  .cta {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .topToast {
+    max-width: 420px;
+  }
+}
+
+/* Very small / narrow screens */
+@media (max-width: 380px) {
+  /* collapse grid to single column for very narrow devices */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .avatarWrap {
+    width: 140px;
+    height: 140px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* center CTA on very small screens */
+  .ctaContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,101 @@
+.carouselWrapper {
+    padding: 40px 0;
+    background-color: rgba(213, 224, 234, 0.6);    /* D5E0EA @ 60% */
+    text-align: center;
+}
+
+.heading {
+    font-size: 28px;
+    font-weight: 400;
+    color: #4070B1;
+    margin-bottom: 24px;
+}
+
+/* Fixed centered viewing window (always clipped; animation runs for all sizes) */
+.logoViewport {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+    /* clip slider on all breakpoints */
+    padding: 0 48px;
+    /* visible left/right gap */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.logoSlider {
+    display: flex;
+    gap: 24px;
+    will-change: transform;
+    transition: transform 0.2s linear;
+}
+
+.logoSpacer {
+    flex-shrink: 0;
+    width: 48px;
+    /* matches viewport padding for real edge gap */
+}
+
+.logoBox {
+    background: #fff;
+    padding: 16px;
+    border-radius: 20px;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
+}
+
+.logoBox img {
+    width: 84px;
+    height: auto;
+}
+
+/* ——— Mobile/Tablet sizing tweaks ONLY (animation still runs) ——— */
+@media (max-width: 1200px) {
+    .heading {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .logoViewport {
+        padding: 0 24px;
+        /* smaller side gap */
+    }
+
+    .logoSlider {
+        gap: 16px;
+        /* tighter spacing */
+    }
+
+    .logoSpacer {
+        width: 24px;
+        /* match the smaller padding */
+    }
+
+    .logoBox {
+        min-width: 96px;
+        height: 96px;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .logoBox img {
+        width: 72px;
+    }
+}
+
+@media (max-width: 420px) {
+    .logoBox {
+        min-width: 88px;
+        height: 95px;
+    }
+
+    .logoBox img {
+        width: 90px;
+    }
+}

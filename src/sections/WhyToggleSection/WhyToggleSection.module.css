@@ -1,0 +1,145 @@
+/* Page spacing */
+.section {
+    padding: 180px 16px 48px;
+background: url("../../assets/images/OurProcessbg.png") center/cover no-repeat;
+
+    /* keeps page clean under the card's shadow */
+    background:
+            /* soft blue glow on the right, fades out */
+            radial-gradient(900px 500px at 85% 50%, rgba(214, 229, 255, .45) 0%, rgba(214, 229, 255, 0) 90%),
+            /* top-to-bottom neutral gradient that ends on white */
+            linear-gradient(180deg, #ffffff 0%, #f6f9ff 95%, #ffffff 100%);
+    }
+
+/* Rounded rectangular card */
+.card {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: clamp(18px, 3vw, 28px);
+    background: #e6eef9;
+    /* soft blue like your mock */
+    border-radius: 28px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Small page link on the top-right */
+.productsLink {
+    position: absolute;
+    top: 14px;
+    right: clamp(14px, 2.4vw, 22px);
+    color: #2d6ab1;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.productsLink:hover {
+    text-decoration: underline;
+}
+
+/* Two-column layout */
+.grid {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1.1fr;
+    gap: clamp(18px, 3vw, 28px);
+    align-items: center;
+}
+
+/* Left image block */
+.imageWrap {
+    border-radius: 18px;
+    overflow: hidden;
+    /* make it responsive without hard-cropping the image */
+    aspect-ratio: 16 / 9;
+    /* pick the shape you want */
+    height: auto;
+    /* let aspect-ratio control height */
+    background: #e6eef9;
+    /* color for the letterbox area */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+   
+}
+
+/* Right content */
+.content {
+    padding: clamp(4px, 1vw, 10px);
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #4070b1;
+    font-weight: 600;
+    font-size: clamp(14px, 1.8vw, 20px);
+    margin-bottom: 8px;
+}
+
+.rule {
+    width: 110px;
+    height: 2px;
+    background: #4070b1;
+    display: inline-block;
+    opacity: 0.9;
+}
+
+.title {
+    font-family: "Roboto Serif", serif;
+    font-weight: 500;
+    color: #1e1e1e;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    font-size: clamp(28px, 5vw, 64px);
+}
+
+.title span {
+    color: #4070b1;
+    font-weight: 700;
+}
+
+.copy {
+    color: rgba(0, 0, 0, 0.78);
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.7;
+    margin: 0 0 18px;
+    max-width: 720px;
+}
+
+/* Primary button */
+.cta {
+    border: 0;
+    background: #2d6ab1;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(45, 106, 177, 0.2);
+}
+
+.cta:hover {
+    filter: brightness(1.05);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 880px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .imageWrap {
+        height: clamp(220px, 52vw, 320px);
+    }
+
+    .productsLink {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}

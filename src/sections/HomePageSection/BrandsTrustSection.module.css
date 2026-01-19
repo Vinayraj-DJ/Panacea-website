@@ -1,0 +1,74 @@
+/* Space around the block; keep page background separate */
+.section {
+    padding: 90px 0 200px 20px;
+   border-radius:34px;
+box-shadow: 0 28px 60px rgba(0, 0, 0, 0.44);
+margin-bottom: 4rem;
+  
+
+  
+    /* or your page bg */
+}
+
+/* Card with its own background image and masking */
+.card {
+    position: relative;
+ 
+    /* full viewport width */
+
+  
+    /* center full-bleed element */
+  
+    border-radius: 0;
+    overflow: hidden;
+}
+
+/* Left content column */
+.content {
+    padding: clamp(22px, 4vw, 42px);
+    max-width: 720px;
+}
+
+/* Eyebrow heading */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #2d5fa8;
+    font-weight: 700;
+    font-family: "Roboto Serif", serif;
+    font-size: clamp(22px, 2.4vw, 28px);
+    margin-bottom: 18px;
+}
+
+.rule {
+    display: inline-block;
+    width: clamp(100px, 10vw, 160px);
+    height: 2px;
+    background: #2d5fa8;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* Body copy */
+.copy {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    line-height: 1.85;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+/* Mobile: image moves mostly below, text stays readable */
+@media (max-width: 900px) {
+    .card {
+
+        background-position: center top, center bottom, center bottom;
+        background-size: cover, cover, cover;
+        min-height: 560px;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+}

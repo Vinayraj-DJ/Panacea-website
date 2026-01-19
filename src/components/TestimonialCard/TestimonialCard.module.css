@@ -1,0 +1,185 @@
+.card {
+  position: relative;
+  width: 400px;
+  height: 413px;
+
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+/* Front side */
+.front {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.info p {
+  font-size: 1rem;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Back side */
+.back {
+  position: absolute;
+  inset: 0;
+  background: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.back h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.back p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.text {
+font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+.stars {
+    font-family: 'Roboto Serif', serif;
+    font-size: 24px;
+    margin-top: 16px;
+    color: #CECE08;
+    margin-bottom: 2px;
+}
+/* Hover effect */
+.card:hover .front {
+  opacity: 0;
+}
+
+.card:hover .back {
+  opacity: 1;
+}
+
+/* ✅ Responsive for Mobile */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 320px; /* smaller size for phones */
+    height: auto;
+    min-height: 360px;
+  }
+
+  .info h3 {
+    font-size: 1rem;
+  }
+
+  .info p {
+    font-size: 0.9rem;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .back h3 {
+    font-size: 1rem;
+  }
+
+  .back p {
+    font-size: 0.9rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    margin: 12px 0;
+  }
+
+  .stars {
+    font-size: 1rem;
+  }
+}
+
+/* ===================== Mobile: Adjust hover text ===================== */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+    /* keep centered, smaller cards */
+    height: auto;
+    min-height: 360px;
+  }
+
+  .back {
+    padding: 14px;
+    /* tighter padding */
+    text-align: left;
+    /* keep readable */
+    overflow-y: auto;
+    /* scroll if testimonial is long */
+  }
+
+  .back h3 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .back p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+
+  .stars {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+}

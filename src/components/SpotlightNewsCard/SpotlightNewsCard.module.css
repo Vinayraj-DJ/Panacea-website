@@ -1,0 +1,97 @@
+.card {
+    display: flex;
+    gap: 16px;
+}
+.card {
+    display: flex;
+    gap: 16px;
+    border-radius: 0 !important;
+    /* prevent parent radius */
+    overflow: visible !important;
+    /* stop clipping the image */
+    background: transparent !important;
+    /* avoid rounded white bg */
+}
+
+/* Image */
+.thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.thumb img {
+    border-radius: 0 !important;
+    /* ✅ removes the rounding */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.large .thumb img {
+    border-radius: 0 !important;
+}
+
+/* Small cards → row layout (image left, text right) */
+.small {
+    flex-direction: row;
+    height: 160px;
+    /* match Figma */
+}
+
+.small .thumb {
+    flex: 0 0 40%;
+    /* 40% image */
+}
+
+.small .body {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Large feature card → column layout */
+.large {
+    flex-direction: column;
+}
+
+.large .thumb {
+    width: 100%;
+      height:100%;
+    /* taller */
+}
+
+.large .body {
+    padding-top: 12px;
+}
+
+/* Typography */
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #111;
+    text-decoration: none;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+
+.excerpt {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.65);
+    margin: 4px 0 8px;
+}
+
+.date {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.55);
+}

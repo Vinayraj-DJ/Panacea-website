@@ -1,0 +1,17 @@
+.block {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.8;
+}

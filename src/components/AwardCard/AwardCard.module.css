@@ -1,0 +1,106 @@
+/* Card layout: left image, right content */
+.card {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+/* LEFT: badge (large on desktop) */
+.badgeWrap {
+    width: 180px;
+    min-width: 180px;
+    text-align: center;
+}
+
+.badge {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Year under badge (mobile) */
+.yearMobile {
+    display: none;
+    margin-top: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* RIGHT: content block */
+.cardContent {
+    flex: 1;
+   
+    
+}
+
+/* Year above line (desktop only) */
+.yearDesktop {
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.cardTitle {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+.cardDesc {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6f6f6f;
+}
+
+/* ----- Responsive (MOBILE view) ----- */
+@media (max-width: 900px) {
+
+    /* KEEP left-right layout */
+    .card {
+        flex-direction: row;
+        /* stay side-by-side */
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .badgeWrap {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .badge {
+        width: 80px;
+    }
+
+    /* Show year under badge (mobile) */
+    .yearMobile {
+        display: block;
+    }
+
+    /* Hide desktop year above line (mobile) */
+    .yearDesktop {
+        display: none;
+    }
+
+    /* Remove border line for cleaner stacked text on mobile */
+    .cardContent {
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .cardTitle {
+        font-size: 16px;
+    }
+
+    .cardDesc {
+        font-size: 13px;
+    }
+}

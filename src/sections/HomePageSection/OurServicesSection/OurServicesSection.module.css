@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.section {
+    position: relative;
+    width: 100%;
+}
+
+.bgWrapper {
+    position: relative;
+    width: 100%;
+    height: 515px;
+    overflow: hidden;
+}
+
+.bgImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textBox {
+    position: absolute;
+    top: 30%;
+    left: 90px;
+    transform: translateY(-50%);
+    max-width: 540px;
+    color: white;
+    text-align: left;
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Roboto Serif", serif;
+}
+
+.cardWrapper {
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 34px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 0;
+}
+
+.link {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.link a {
+    font-size: 16px;
+    color: #2d6ab1;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Desktop Version ---------------- */
+@media (min-width: 769px) {
+    .cards img {
+        width: 200px;
+        /* Fixed size for desktop */
+        height: auto;
+        display: block;
+        border-radius: 24px;
+    }
+}
+
+/* ---------------- Mobile ≤ 768px ONLY (hide scrollbar visually but keep scrolling) ---------------- */
+@media (max-width: 768px) {
+    .bgWrapper {
+        height: 360px;
+    }
+
+    .textBox {
+        top: 50%;
+        left: 25px;
+        transform: translateY(-50%);
+        max-width: 90%;
+        text-align: left;
+    }
+
+    .heading {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.2px;
+    }
+
+    .cardWrapper {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+        margin-top: -66px;
+        z-index: 3;
+    }
+
+    /* Horizontal scroller (keeps scrolling) */
+    .cards {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+        margin: 0;
+        /* hide scrollbar visuals but preserve scroll functionality */
+        -ms-overflow-style: none;  /* IE/Edge */
+        scrollbar-width: none;     /* Firefox */
+    }
+
+    .cards::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    /* remove focus outline on the scroller itself (targeted, not global) */
+    .cards:focus {
+        outline: none;
+    }
+
+    .cards img {
+        flex: 0 0 45%;
+        max-width: 45%;
+        height: auto;
+        display: block;
+        border-radius: 24px;
+        scroll-snap-align: start;
+    }
+
+    .link {
+        justify-content: flex-end;
+        margin-top: 16px;
+    }
+
+    .link a {
+        font-size: 14px;
+    }
+}
+
+/* ---------------- Extra small phones ≤ 360px (hide scrollbar visuals, keep scroll) ---------------- */
+@media (max-width: 360px) {
+    .bgWrapper {
+        height: 320px;
+    }
+
+    .textBox {
+        right: 12px;
+        left: 12px;
+    }
+
+    .heading {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 13.5px;
+        line-height: 20px;
+    }
+
+    .cardWrapper {
+        padding: 0 12px;
+        margin-top: -28px;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+        margin: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cards:focus {
+        outline: none;
+    }
+
+    .cards img {
+        flex: 0 0 48%;
+        max-width: 48%;
+        height: auto;
+        display: block;
+        border-radius: 24px;
+        scroll-snap-align: start;
+    }
+}

@@ -1,0 +1,136 @@
+:root {
+  --blue-700: #2f6fb6;
+  --blue-200: #cfe9ff;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --shadow-1: 0 8px 20px rgba(23, 23, 23, 0.06);
+}
+
+/* Import Roboto Serif font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+.sectionRoot {
+  padding: 64px 0;
+  /* Primary font as Roboto Serif with Poppins fallback */
+  font-family: "Roboto Serif";
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  
+}
+
+.title {
+  text-align: center;
+  color: var(--blue-700);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  letter-spacing: 0.2px;
+  font-family: "Roboto Serif", serif;
+}
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 800px) {
+  .cardsRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--blue-200);
+  box-shadow: var(--shadow-1);
+  padding: 24px;
+  font-family: "Roboto Serif", serif;
+  background: linear-gradient(180deg, rgba(243,247,255,1) 0%, rgba(250,250,255,1) 100%);
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.itemRow {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.iconWrap {
+  flex: 0 0 56px;
+}
+
+.iconBg {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(180deg, rgba(243,247,255,1) 0%, rgba(250,250,255,1) 100%); */
+  /* box-shadow: 0 2px 6px rgba(47,111,182,0.06); */
+}
+
+.iconSvg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: var(--blue-700);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.itemContent {
+  flex: 1;
+}
+
+.itemTitle {
+  color: var(--blue-700);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: "Roboto Serif", serif;
+}
+
+.itemDesc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Roboto Serif", serif;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+  .card {
+    padding: 18px;
+  }
+  .iconBg {
+    width: 48px;
+    height: 48px;
+  }
+  .iconSvg {
+    width: 28px;
+    height: 28px;
+  }
+  .itemTitle {
+    font-size: 14px;
+  }
+  .itemDesc {
+    font-size: 13px;
+  }
+}
+

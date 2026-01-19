@@ -1,0 +1,143 @@
+:root {
+    --purple: #6E5AB7;
+    --rose: #CC7A7A;
+    --dot-purple: #8D7FE0;
+    --dot-rose: #D59A9A;
+}
+
+/* the row gives each step a fixed slot; make the circle fill it */
+.step {
+    --size: 100%;
+    /* circle = width of its slot */
+    position: relative;
+    flex: 0 0 var(--size);
+    scroll-snap-align: center;
+    display: grid;
+    place-items: center;
+}
+
+/* main circle */
+.circle {
+    width: var(--size);
+    height: var(--size);
+    /* perfect square */
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+    /* slightly lighter */
+    position: relative;
+    overflow: hidden;
+}
+
+/* dotted top arc – tighter inset so less top gap */
+.circle::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 6px dotted var(--dot);
+    border-radius: 50%;
+    clip-path: inset(0 0 50% 0);
+    /* top half only */
+    opacity: .9;
+    pointer-events: none;
+}
+
+/* colored bottom rim – tighter inset so less bottom gap */
+.circle::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, var(--purple) 0 50%, var(--rose) 50% 100%);
+    -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 10px), #000 0);
+    mask: radial-gradient(closest-side, transparent calc(100% - 10px), #000 0);
+    clip-path: inset(50% 0 0 0);
+    /* bottom half only */
+    opacity: .95;
+    pointer-events: none;
+}
+
+/* connector to next circle – proportional to slot width */
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(100% - 12px);
+    width: calc(var(--size) * 0.22);
+    height: 12px;
+    background:
+        radial-gradient(#fff 5px, var(--rose) 6px, transparent 7px) left center / 12px 12px no-repeat,
+        linear-gradient(90deg, var(--rose) 0 50%, var(--purple) 50% 100%) center / calc(100% - 24px) 4px no-repeat,
+        radial-gradient(#fff 5px, var(--purple) 6px, transparent 7px) right center / 12px 12px no-repeat;
+    opacity: .9;
+}
+
+/* face + hover-reveal */
+.front,
+.reveal {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    gap: 8px;
+    padding: 20px;
+    /* tighter padding to save space */
+    text-align: center;
+    transition: opacity .22s ease, transform .22s ease;
+}
+
+.iconWrap {
+    width: 56%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: #ECF1F7;
+    display: grid;
+    place-items: center;
+}
+
+.icon {
+    width: 54%;
+    height: 54%;
+    object-fit: contain;
+}
+
+.title {
+    margin: 0;
+    font-weight: 800;
+    color: #1f2937;
+    font-size: clamp(18px, 1.8vw, 24px);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    background: radial-gradient(120% 120% at 50% 110%, rgba(0, 0, 0, .10), transparent 55%), #fff;
+}
+
+.text {
+    margin: 0;
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+.step:hover .front,
+.step:focus-visible .front {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+.step:hover .reveal,
+.step:focus-visible .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* dotted color variants */
+.purple {
+    --dot: var(--dot-purple);
+}
+
+.rose {
+    --dot: var(--dot-rose);
+}

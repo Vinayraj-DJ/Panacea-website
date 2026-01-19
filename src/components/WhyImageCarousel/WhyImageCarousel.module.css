@@ -1,0 +1,284 @@
+/* =========================
+   WhyImageCarousel.module.css
+   ========================= */
+
+/* Container */
+.wrap {
+    position: relative;
+    width: 100%;
+    padding: 12px 0 28px;
+}
+
+/* -------------------------
+   Panels (fade/slide + tilt)
+   ------------------------- */
+.panel {
+    position: relative;
+    width: min(1200px, 94vw);
+    margin: 0 auto;
+    transition: transform 0.55s ease, opacity 0.55s ease;
+
+    /* baseline tilt when hidden */
+    --tilt: 0deg;
+
+    /* 👇 IMPORTANT: compute tilt tokens HERE on the panel
+     so children (.sheet, .imageShell) inherit the right values */
+    --sheetTilt: var(--tilt);
+    --imgTiltZ: calc(var(--sheetTilt) * -1);
+    --imgTiltX: 4deg;
+    --sheetTiltX: 2.2deg;
+}
+
+.left {
+    --target-tilt: -3.2deg;
+}
+
+.right {
+    --target-tilt: 3.2deg;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    --tilt: var(--target-tilt);
+    /* only shown panel is tilted */
+}
+
+.hideLeft,
+.hideRight {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    top: 0;
+    width: min(1200px, 94vw);
+    --tilt: 0deg;
+    /* flatten while hiding */
+}
+
+.hideLeft {
+    transform: translateX(-40px);
+}
+
+.hideRight {
+    transform: translateX(40px);
+}
+
+/* -----------------------------------------
+   Row: 3-D space + layout sizing tokens
+   ----------------------------------------- */
+.row {
+    position: relative;
+    width: 100%;
+    margin: 40px auto 56px;
+    min-height: clamp(480px, 52vw, 640px);
+    overflow: visible;
+
+    /* 3D */
+    perspective: 1400px;
+    --gap: 26px;
+    /* space between plates */
+    --cardW: clamp(420px, 44vw, 640px);
+    /* image plate width */
+    --cardH: clamp(280px, 32vw, 440px);
+    /* image plate height */
+}
+
+/* Keep text clear of the image plate + the gap */
+.left .sheet {
+    padding-left: calc(var(--cardW) + var(--gap) + 24px);
+}
+
+.right .sheet {
+    padding-right: calc(var(--cardW) + var(--gap) + 24px);
+}
+
+/* -----------------------------------------
+   Content + “sheet” (BACK plate, angled bg)
+   ----------------------------------------- */
+.sheet {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: #1e1e1e;
+    padding-block: clamp(20px, 3.8vw, 54px);
+    padding-inline: clamp(20px, 3.8vw, 54px);
+}
+
+.sheet::before {
+    content: "";
+    position: absolute;
+    inset: -28px -10px;
+    /* larger than content box */
+    background: #e6eef9;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: rotateZ(var(--sheetTilt)) rotateX(var(--sheetTiltX)) translateZ(-1px);
+    transition: transform 0.55s ease;
+}
+
+/* -----------------------------------------
+   Image card (FRONT plate, smaller + clipped)
+   ----------------------------------------- */
+.imageShell {
+    position: absolute;
+    z-index: 2;
+    /* front plate */
+    width: var(--cardW);
+    height: var(--cardH);
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 22px 58px rgba(0, 0, 0, 0.22);
+    background: #e9eef8;
+    top: clamp(24px, 3vw, 36px);
+    transform-style: preserve-3d;
+    transform: rotateZ(var(--imgTiltZ)) rotateX(var(--imgTiltX)) translateZ(40px);
+}
+
+.left .imageShell {
+    left: max(22px, 2.2vw);
+}
+
+.right .imageShell {
+    right: max(22px, 2.2vw);
+}
+
+/* Diagonal cuts so both angles are visible */
+.left .imageShell {
+    clip-path: polygon(6% 0, 100% 0, 100% 78%, 94% 100%, 0 100%, 0 18%);
+}
+
+.right .imageShell {
+    clip-path: polygon(0 0, 94% 0, 100% 18%, 100% 100%, 6% 100%, 0 78%);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------
+   Text styles
+   ----------------- */
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #4070B1;
+    font-weight: 600;
+    font-size: clamp(16px, 2.2vw, 22px);
+    margin: 0 0 10px;
+}
+
+.rule {
+    height: 2px;
+    width: 100px;
+    background: #4070B1;
+    opacity: 0.9;
+    display: inline-block;
+}
+
+.title {
+    font-family: "Roboto Serif", serif;
+    font-weight: 500;
+    color: #1e1e1e;
+    margin: 0 0 12px;
+    line-height: 1.12;
+    font-size: clamp(28px, 4.6vw, 56px);
+}
+
+.title span {
+    color: #4070B1;
+    font-weight: 700;
+}
+
+.copy {
+    margin: 0 0 10px;
+    max-width: 820px;
+    color: rgba(0, 0, 0, 0.72);
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.7;
+}
+
+.cta {
+    border: 0;
+    background: #2d6ab1;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 10px 24px rgba(45, 106, 177, 0.25);
+    cursor: pointer;
+}
+
+/* -----------------
+   Dots
+   ----------------- */
+.dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #c8d7f1;
+    border: 0;
+    cursor: pointer;
+}
+
+.activeDot {
+    width: 34px;
+    background: #2d6ab1;
+}
+
+/* -----------------
+   Mobile
+   ----------------- */
+@media (max-width: 768px) {
+    .row {
+        perspective: none;
+        min-height: auto;
+        margin: 24px auto 36px;
+    }
+
+    .imageShell {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        clip-path: none;
+        border-radius: 18px;
+        margin-bottom: 14px;
+        transform: none;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .sheet {
+        padding: 18px;
+    }
+
+    .sheet::before {
+        inset: -16px -8px;
+        transform: none;
+        /* flatten on phones */
+    }
+
+    .left .sheet,
+    .right .sheet {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}

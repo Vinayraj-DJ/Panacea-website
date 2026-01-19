@@ -1,0 +1,971 @@
+/* 
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap");
+
+:root{
+
+  --panel-bg: #dfe9f6;
+  --panel-border: #c9d7ec;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --link: #0f172a;
+  --link-hover: #0b3ea6;
+  --cta: #4070B1;
+  --cta-ink: #ffffff;
+  --bottom-bg: #4070B1;
+  --white: #ffffff;
+  --radius: 12px;
+}
+
+
+.footer{
+  width:100%;
+  background: var(--panel-bg);
+  font-family: "Roboto Serif", ui-serif, Georgia, serif;
+  margin: 0;            
+  padding-top: 0;
+}
+
+
+.panel{
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--panel-border);
+  margin: 0;          
+}
+
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: grid;
+  grid-template-columns: 1.25fr repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1024px){
+  .container{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .container{ grid-template-columns: 1fr; }
+}
+
+
+.newsletter{
+  font-size:16px;
+  font-weight:500;
+  color: var(--ink);
+  margin: 0 0 12px;       
+}
+.newsletterLabel{
+  display:block;
+  font-size:14px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.newsletterRow{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.input{
+  width: 241px;
+  height: 48px;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  background: var(--white);
+  padding: 0 12px;
+  font-size:14px;
+  color: var(--ink);
+  outline: none;
+}
+.input:focus{
+  box-shadow: 0 0 0 3px rgba(64,112,177,0.18);
+  border-color: #9bb6db;
+}
+.cta{
+  height: 48px;
+  padding: 0 22px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--cta);
+  color: var(--cta-ink);
+  font-size:16px;
+  font-weight:500;       
+  letter-spacing: .5px;
+  cursor:pointer;
+  transition: transform .06s ease, filter .2s ease;
+}
+.cta:hover{ filter: brightness(1.05); }
+.cta:active{ transform: translateY(1px); }
+
+
+.col{}
+.heading{
+  font-size:16px;
+  font-weight:500;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.list li{ margin: 10px 0; }
+.link{
+  color: var(--link);
+  text-decoration: none;
+  font-size:13px;
+  line-height: 1.4;
+}
+.link:hover{ color: var(--link-hover); }
+
+
+.contactList{
+  list-style:none;
+  margin:0 0 8px;
+  padding:0;
+}
+.contactItem{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color: var(--muted);
+  font-size:13px;
+  margin: 8px 0;
+}
+.contactIcon{
+  width:16px;
+  height:16px;
+  color:#0b3ea6;
+}
+
+
+.socialRow{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+.socialBtn{
+  width:28px;
+  height:28px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #4070B1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border: 1px solid var(--panel-border);
+  transition: background .15s ease, color .15s ease;
+}
+.socialBtn:hover{
+  background:#edf3fb;
+  color:#0b3ea6;
+}
+
+
+.bottom{ background: var(--bottom-bg); }
+.bottomInner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  color: var(--white);
+}
+.brandLeft{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.logo{
+  width:24px;
+  height:24px;
+  object-fit: contain;
+}
+.brand{ font-weight:600; }
+.copy{
+  margin:0;
+  font-size:14px;
+}
+
+@media (max-width: 640px){
+  .newsletterRow{ gap:8px; }
+  .input{ width: 100%; }
+  .cta{ padding: 0 16px; }
+  .bottomInner{
+    flex-direction: column;
+    gap:8px;
+    text-align:center;
+  }
+} */
+
+
+
+
+:root {
+    --bg: #0f1724;
+    /* near-gray-900 */
+    --muted: #9aa4b2;
+    /* gray-400-ish */
+    --muted-2: #6b7280;
+    /* gray-500-ish */
+    --accent: #2563eb;
+    /* blue-600 */
+    --panel: #0b1220;
+    /* slightly darker */
+    --white: #ffffff;
+
+    /* Panacea brand blues (match topbar) */
+    --brand-blue: #3b71b3;
+    /* title blue */
+    --brand-blue-light: #3d8ed7;
+    /* subtitle blue */
+}
+
+/* existing root vars kept the same */
+:root {
+    --bg: #0f1724;
+    --muted: #9aa4b2;
+    --muted-2: #a1a8b4;
+    --accent: #2563eb;
+    --panel: #0b1220;
+    --white: #ffffff;
+}
+
+/* footer outer */
+.footer {
+    width: 100%;
+    background: var(--bg);
+    color: var(--white);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial;
+}
+
+/* LOGO + NAME (match topbar style) */
+.footerLogoBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.footerLogo {
+    height: 44px;
+    /* smaller than topbar (57px) */
+    width: 48px;
+    /* smaller than topbar (63px) */
+    object-fit: contain;
+}
+
+.footerTitleBlock {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+/* same font + color as topbar.title */
+.footerTitle {
+    font-family: 'Suez One', serif;
+    font-size: 22px;
+    /* smaller than topbar 30px */
+    color: #426FB0;
+    margin: 0;
+}
+
+/* same font + color as topbar.subtitle */
+.footerSubtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #69A8DB;
+    margin: 2px 0 0 0;
+}
+
+/* (rest of your existing footer styles remain unchanged) */
+/* inner container (similar to max-w-7xl px ... py-16 ) */
+.inner {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 50px 16px;
+    
+}
+
+/* grid: 1 col mobile, 2 on md, 4 on lg */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* column wrapper */
+.col {
+    display: block;
+}
+
+/* Brand row */
+.brandRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.logoBox {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoLetter {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.brandName {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* lead paragraph */
+.lead {
+    color: var(--muted-2);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 34ch;
+}
+
+/* Social Row */
+.socialRow {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.socialBtn {
+    width: 44px;
+    height: 44px;
+    background: #1a2234;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+.socialBtn:hover {
+    background: #2563eb;
+}
+
+.socialIcon {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* headings */
+.heading {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* lists */
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--muted);
+    display: block;
+}
+
+.listItem+.listItem {
+    margin-top: 20px;
+}
+
+.link {
+    color: var(--muted-2);
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.link:hover {
+    color: var(--white);
+}
+
+/* contact block */
+.contactStack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contactRow {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.iconSmall {
+    width: 18px;
+    height: 18px;
+    color: var(--muted-2);
+    margin-top: 2px;
+}
+
+.contactMain {
+    color: var(--muted-2);
+    margin: 0;
+}
+
+.contactSub {
+    color: var(--muted-2);
+    margin: 0;
+    font-size: 12px;
+}
+
+/* bottom bar */
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 32px;
+    padding-top: 24px;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.copy {
+    color: var(--muted-2);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* legal links row */
+.legalRow {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.legalLink {
+    color: var(--muted-2);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.legalLink:hover {
+    color: var(--white);
+}
+/* Mobile ≤ 768px: footer adjustments */
+@media (max-width: 768px) {
+    .socialRow {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 16px;
+        }
+    .socialBtn {
+            width: 44px;
+            height: 44px;
+            background: #1a2234;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            
+            justify-content: center;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+    .inner {
+           
+            margin-inline: auto;
+            padding: 32px 16px;
+        }
+    .footer {
+        padding: 32px 16px;
+        /* Add padding to give space around the footer content */
+    }
+
+    /* Stack the grid into a single column */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        /* Adjust the gap between sections */
+    }
+
+    /* Align logo and company name in the same row */
+    .footerLogoBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .footerLogo {
+        height: 36px;
+        width: 40px;
+        object-fit: contain;
+    }
+
+    .footerTitleBlock {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .footerTitle {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .footerSubtitle {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    /* Services and Company in the same row, side by side */
+    .servicesCompanyRow {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        /* Ensure they take full width */
+    }
+
+    .col {
+        flex: 1;
+        text-align: center;
+        /* Ensure both columns take 50% width */
+    }
+
+    .heading {
+        font-size: 16px;
+        margin-bottom: 24px;
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: var(--muted);
+        text-align: center;
+    }
+
+    .listItem+.listItem {
+        margin-top: 16px;
+    }
+
+    /* Contact section title centered */
+    .contactStack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        /* Center the contact info */
+        margin-top: 24px;
+    }
+
+    .contactRow {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contactMain {
+        color: var(--muted-2);
+    }
+
+    .contactSub {
+        color: var(--muted-2);
+        font-size: 12px;
+    }
+
+    /* Bottom bar adjustments */
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .copy {
+        color: var(--muted-2);
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .legalRow {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .legalLink {
+        color: var(--muted-2);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .legalLink:hover {
+        color: var(--white);
+    }
+}
+/* Mobile ≤ 768px: footer adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 32px 16px;
+    }
+
+    /* Stack the grid into a single column */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Services and Company in the same row, side by side */
+    .servicesCompanyRow {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .col {
+        flex: 1;
+        text-align: center;
+        /* Ensure both columns take 50% width */
+    }
+
+    /* Modify the headings */
+    .heading {
+        font-size: 16px;
+        margin-bottom: 24px;
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: var(--muted);
+        text-align: center;
+    }
+
+    .listItem+.listItem {
+        margin-top: 16px;
+    }
+
+    /* Align Contact info at center */
+    .contactStack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        margin-top: 24px;
+    }
+
+    .contactRow {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contactMain {
+        color: var(--muted-2);
+    }
+
+    .contactSub {
+        color: var(--muted-2);
+        font-size: 12px;
+    }
+
+    /* Adjust Bottom Bar */
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .copy {
+        color: var(--muted-2);
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .legalRow {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .legalLink {
+        color: var(--muted-2);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .legalLink:hover {
+        color: var(--white);
+    }
+}
+
+/* Ensure grid layout works properly on desktop */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        /* 2 columns for services and company on desktop */
+    }
+
+    .servicesCompanyRow {
+        display: flex;
+        gap: 16px;
+        /* Ensure space between services and company columns */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .col {
+        flex: 1;
+        /* Make sure each column takes up equal space */
+        text-align: left;
+        /* Align text to the left for better readability */
+    }
+}
+/* Mobile ≤ 768px: footer adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 0px 0px;
+        /* Add padding to give space around the footer content */
+    }
+
+    /* Stack the grid into a single column */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        /* Adjust the gap between sections */
+    }
+
+    /* Align logo and company name in the same row */
+    .footerLogoBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .footerLogo {
+        height: 36px;
+        width: 40px;
+        object-fit: contain;
+    }
+
+    .footerTitleBlock {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .footerTitle {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .footerSubtitle {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    /* Services and Company in the same row, side by side */
+    .servicesCompanyRow {
+        display: flex;
+        justify-content: space-between;
+        /* Align left and right */
+        gap: 16px;
+        width: 100%;
+        /* Make sure they take full width */
+    }
+
+    .col {
+        flex: 1;
+        /* Ensure both columns take 50% width */
+        text-align: center;
+        /* Center align column content */
+    }
+
+    /* Service and Company titles */
+    .heading {
+        font-size: 16px;
+        margin-bottom: 24px;
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: var(--muted);
+        text-align: center;
+        /* Center align the list items */
+    }
+
+    .listItem+.listItem {
+        margin-top: 16px;
+    }
+
+    /* Contact section title centered */
+    .contactStack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        /* Center the contact info */
+        margin-top: 24px;
+    }
+
+    .contactRow {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contactMain {
+        color: var(--muted-2);
+    }
+
+    .contactSub {
+        color: var(--muted-2);
+        font-size: 12px;
+    }
+
+    /* Bottom bar adjustments */
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .copy {
+        color: var(--muted-2);
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .legalRow {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Center the legal links */
+    }
+
+    .legalLink {
+        color: var(--muted-2);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .legalLink:hover {
+        color: var(--white);
+    }
+}
+
+/* XS ≤ 360px: further adjustment for very small screens */
+@media (max-width: 360px) {
+    .footerLogoBlock {
+        margin-bottom: 8px;
+    }
+
+    .footerLogo {
+        height: 30px;
+        width: 32px;
+    }
+
+    .footerTitle {
+        font-size: 18px;
+    }
+
+    .footerSubtitle {
+        font-size: 9px;
+    }
+
+    .socialBtn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .copy {
+        font-size: 12px;
+    }
+
+    .legalLink {
+        font-size: 12px;
+    }
+}

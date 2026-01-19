@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --blue-start: #e3f0ff;
+  --blue-end: #cfe6fb;
+  --accent-red: #ff3e3e;
+  --cream: #fff3e1;
+  /* --orange: #ffe7c8; */
+  --text: #0e1720;
+}
+
+/* WRAPPER */
+.heroWrap {
+  padding: 28px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Serif", serif;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1230px;
+  background: linear-gradient(180deg, var(--blue-start), var(--blue-end));
+  border-radius: 16px;
+  padding: 28px 36px;
+  /* border: 2px solid rgba(18, 90, 180, 0.18); */
+  box-sizing: border-box;
+}
+
+/* HEADLINE */
+.headline {
+  text-align: center;
+  font-size: 42px;
+  line-height: 72px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 28px;
+  font-family: "Roboto Serif", serif;
+}
+.textNormal { font-weight: 400;font-family: "Roboto Serif", serif; }
+.highlight { color: var(--accent-red); font-weight: 600;font-family: "Roboto Serif", serif; }
+
+/* LAYOUT GRID */
+.visuals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* POSTER */
+.posterBox { padding: 8px; display:flex; align-items:center; justify-content:center; }
+.poster {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(11, 30, 60, 0.08);
+  display: block;
+}
+
+/* CREAM CARD */
+.creamCard {
+  background: var(--cream);
+  border-radius: 14px;
+  /* padding: 26px; */
+  
+  min-height: 370px;
+  position: relative;
+  overflow: visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ORANGE BG PANEL */
+.orangePanel {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 10%;
+  bottom: 10%;
+  background: var(--orange);
+  border-radius: 14px;
+  z-index: 0;
+}
+
+/* SHADOW UNDER PHONE */
+.phonesShadow {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 48%;
+  height: 120px;
+  background: radial-gradient(
+    circle,
+    rgba(10, 30, 60, 0.12),
+    rgba(10, 30, 60, 0.02) 60%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+/* PHONES WRAPPER */
+.phones {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+}
+
+/* SINGLE PHONE (used everywhere) */
+.phoneSingle {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  /* box-shadow: 0 28px 60px rgba(10, 30, 60, 0.18); */
+  position: relative;
+  z-index: 2;
+  display: block;
+  /* object-fit: cover; */
+  padding-bottom: 50px;
+}
+
+/* TABLET RESPONSIVE */
+@media (max-width: 1024px) {
+  .headline { font-size: 40px; line-height: 56px; }
+  .phones { height: 360px; }
+  .phoneSingle { width: 190px; }
+  .phonesShadow { height: 110px; filter: blur(16px); left:22%; right:22%; top:50%; }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 760px) {
+  .container { padding: 20px; }
+  .visuals { grid-template-columns: 1fr; gap: 18px; }
+  .headline { font-size: 28px; line-height: 36px; text-align: left; margin-bottom: 18px; }
+  .orangePanel { left: 6%; right: 6%; top: 12%; bottom: 12%; border-radius: 10px; }
+  .phones { max-width: 320px; margin: 0 auto; height: auto; padding: 20px 0; }
+  .phoneSingle { width: 160px; box-shadow: 0 12px 28px rgba(10,30,60,0.08); }
+  .phonesShadow { display: none; }
+}

@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap');
+
+:root {
+  --accent: #4070B1;
+  --arrow: #F2CAF8;
+}
+
+/* SECTION */
+.section {
+  background: transparent;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.heading {
+  font-family: "Roboto Serif", serif;
+  color: var(--accent);
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 40px 0;
+  font-weight: 600;
+}
+
+/* MAIN LAYOUT */
+.stepsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* STEP CARD */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+/* IMAGE */
+.image {
+  width: 100%;
+  max-width: 360px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.4s ease;
+}
+
+/* ===========================
+   LIFT ONLY STEP 1 & STEP 3 IMAGES
+   (your DOM: 1st child = step1, 3rd = step2, 5th = step3)
+   =========================== */
+
+/* Step 1 image */
+.stepsRow > :nth-child(1).step .image,
+.stepsRow > .step:nth-child(1) .image {
+  transform: translateY(-100px);
+}
+
+/* Step 2 image stays normal */
+.stepsRow > .step:nth-child(3) .image {
+  transform: translateY(0);
+}
+
+/* Step 3 image */
+.stepsRow > :nth-child(5).step .image,
+.stepsRow > .step:nth-child(5) .image {
+  transform: translateY(-100px);
+}
+
+/* Hover rules — preserve lifted offset */
+/* .stepsRow > :nth-child(1).step .image:hover,
+.stepsRow > .step:nth-child(1) .image:hover,
+.stepsRow > :nth-child(5).step .image:hover,
+.stepsRow > .step:nth-child(5) .image:hover {
+  transform: translateY(-8px) scale(1.03);
+} */
+
+/* .stepsRow > .step:nth-child(3) .image:hover {
+  transform: scale(1.03);
+} */
+
+/* LABEL */
+.label {
+  font-family: "Roboto Serif", serif;
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-top: 14px;
+  transition: transform 0.3s ease, margin 0.3s ease;
+}
+
+/* ===========================
+   LIFT ONLY STEP 1 & STEP 3 LABELS
+   =========================== */
+
+.stepsRow > :nth-child(1).step .label,
+.stepsRow > .step:nth-child(1) .label {
+  margin-top: -5px;
+  transform: translateY(-100px);
+}
+
+/* Step 2 label stays normal */
+.stepsRow > .step:nth-child(3) .label {
+  margin-top: 14px;
+  transform: translateY(0);
+}
+
+/* Step 3 label */
+.stepsRow > :nth-child(5).step .label,
+.stepsRow > .step:nth-child(5) .label {
+  margin-top: -5px;
+ transform: translateY(-100px);
+}
+
+/* ARROW SPACER (straight arrow) */
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 180px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.arrow {
+  width: 100%;
+  height: 40px;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stepsRow {
+    gap: 20px;
+  }
+  .image {
+    max-width: 300px;
+    height: 240px;
+  }
+  .arrowWrap {
+    flex: 0 0 140px;
+    height: 240px;
+  }
+
+  /* Smaller lift on tablet */
+  .stepsRow > :nth-child(1).step .image,
+  .stepsRow > :nth-child(5).step .image,
+  .stepsRow > .step:nth-child(1) .image,
+  .stepsRow > .step:nth-child(5) .image {
+    transform: translateY(-18px);
+  }
+
+  .stepsRow > :nth-child(1).step .label,
+  .stepsRow > :nth-child(5).step .label,
+  .stepsRow > .step:nth-child(1) .label,
+  .stepsRow > .step:nth-child(5) .label {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .stepsRow {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .arrowWrap {
+    display: none;
+  }
+
+  .image {
+    max-width: 100%;
+    height: 220px;
+  }
+
+  /* Reset shifts for stacked mobile layout */
+  .stepsRow > .step .image {
+    transform: none !important;
+  }
+
+  .stepsRow > .step .label {
+    margin-top: 12px !important;
+    transform: none !important;
+  }
+
+  .label {
+    font-size: 18px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .image {
+    height: 180px;
+  }
+  .label {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,344 @@
+/* ===================================================================
+   PeopleBelieveSection.module.css
+   Complete page CSS - desktop unchanged, mobile-friendly grid + toast
+   =================================================================== */
+
+/* -------------------------
+   Global safety / box-sizing
+   ------------------------- */
+:root {
+  --collage-max-width: 1280px;
+  --mobile-grid-max: 520px;
+  --bg-start: #fff9f0;
+  --bg-end: #f6f4ff;
+}
+
+html, body {
+  /* Prevent accidental horizontal scroll caused by children */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* =========================
+   Section (background + spacing)
+   ========================= */
+.section {
+  padding: 70px 20px 180px 0;
+  background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
+  position: relative;
+  color: #000;
+  overflow: visible;
+}
+
+/* -------------------------
+   Collage wrapper (desktop)
+   ------------------------- */
+.collageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* -------------------------
+   Desktop collage layout
+   (intended look: staggered floating cards)
+   ------------------------- */
+.collage {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  position: relative;
+  z-index: 1;
+  max-width: var(--collage-max-width);
+  margin: 0 auto;
+}
+
+/* columns behave as vertical stacks */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* person card */
+.person {
+  width: 132px;
+  height: 175px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Desktop stagger offsets (keeps visual stagger) */
+.col1 { margin-top: 40px; }
+.col2 { margin-top: 80px; }
+.col3 { margin-top: 20px; }
+.col4 { margin-top: 60px; }
+.col5 { margin-top: 100px; }
+.col6 { margin-top: 40px; }
+.col7 { margin-top: 60px; }
+.col8 { margin-top: 20px; }
+
+/* -------------------------
+   Desktop text overlay (centered)
+   ------------------------- */
+.textBlock {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  max-width: 727px;
+  z-index: 2;
+  padding: 0 12px;
+}
+
+.title {
+  font-family: "Roboto Serif", serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: #4070b1;
+  margin: 0 0 12px 0;
+}
+
+.subtitle {
+  font-family: "Roboto Serif", serif;
+  font-size: 34px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0 0 20px 0;
+}
+
+/* =================================================
+   MOBILE: show a neat 3x3 grid with center text
+   (desktop collage + textBlock hidden on mobile)
+   ================================================= */
+
+/* mobile-grid element exists in DOM but is hidden on desktop */
+.mobileGrid {
+  display: none;
+}
+
+/* -------------------------
+   Toast (re-usable)
+   ------------------------- */
+.toastContainer,
+.toast {
+  /* container styles set further down for mobile/desktop */
+}
+
+/* animation helpers */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes toastTimerAnim {
+  from { width: 100%; } to { width: 0%; }
+}
+
+/* =========================
+   RESPONSIVE RULES
+   breakpoints: <=900px hide desktop collage and show mobile grid
+   ========================= */
+@media (max-width: 900px) {
+  /* -------------------------
+     Basic section adjustments
+     ------------------------- */
+  .section {
+    /* reduce padding so content doesn't overflow */
+    padding: 40px 12px 60px 12px;
+  }
+
+  /* hide desktop collage/text to avoid layout conflicts */
+  .collage { display: none !important; }
+  .textBlock { display: none !important; }
+
+  /* -------------------------
+     Mobile 3x3 grid (center is content)
+     ------------------------- */
+  .mobileGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    width: 100%;
+    max-width: var(--mobile-grid-max);
+    margin: 6px auto 0;        /* centered in section */
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+    padding: 0 6px;
+    z-index: 2;
+  }
+
+  /* each image cell */
+  .mobileCell {
+    width: 100%;
+    max-width: 129px;
+        /* bounds to avoid overflow */
+        aspect-ratio: 132 / 175;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobileCell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* center cell with text + button */
+  .mobileCenter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .mobileTitle {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    color: #4070b1;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .mobileSubtitle {
+    font-family: "Roboto Serif", serif;
+    font-size: 13px;
+    color: rgba(0,0,0,0.55);
+    margin: 0;
+  }
+
+  .mobileCenter > button,
+  .mobileCenter > .button {
+    width: min(220px, 72%);
+  }
+
+  /* -------------------------
+     Toast styles for this section
+     ------------------------- */
+  .toastContainer {
+    position: fixed;
+    bottom: 18px;
+    left: 12px;
+    right: 12px;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    box-sizing: border-box;
+    padding: 0 6px;
+  }
+
+  .toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 220px;
+    max-width: 520px;
+    background: linear-gradient(90deg, #69b7d6 0%, #59c2b2 65%);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.16);
+    font-family: "Roboto Serif", serif;
+    font-size: 14px;
+    line-height: 1.3;
+    position: relative;
+    animation: toastIn 240ms ease-out;
+  }
+
+  .toastClose {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .toastTimer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.75);
+    width: 100%;
+    animation: toastTimerAnim 4s linear forwards;
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+/* =========================
+   Small phones (<=420px) tweaks
+   ========================= */
+@media (max-width: 420px) {
+  .section { padding: 28px 10px 60px 10px; }
+
+  .mobileGrid {
+    gap: 8px;
+    max-width: 420px;
+  }
+
+  .mobileCell {
+    max-width: 96px;
+  }
+
+  .mobileTitle { font-size: 16px; }
+  .mobileSubtitle { font-size: 12px; }
+}
+
+/* =========================
+   Tablet fallback (<=1200 & >900) - make collage wrap a bit
+   ========================= */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .collage {
+    gap: 18px;
+  }
+
+  .person {
+    width: 120px;
+    height: 160px;
+  }
+
+  .textBlock {
+    max-width: 620px;
+  }
+}
+
+/* =========================
+   EXTRA: fallback to ensure no horizontal overflow
+   ========================= */
+@supports (overflow: clip) {
+  /* nothing additional, just keeping compatibility note */
+}
+
+/* ===================================================================
+   END - PeopleBelieveSection.module.css
+   =================================================================== */

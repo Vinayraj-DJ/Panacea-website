@@ -1,0 +1,136 @@
+/* Load Roboto Serif for this component (ensure the remote font link is also included in index.html) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+:root {
+  --accent-blue: #4070B1;
+  --card-bg: #FFFEFC;
+  --card-radius: 20px;
+  --card-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  
+}
+
+/* SECTION LAYOUT */
+.section {
+  width: 100%;
+  padding: 64px 24px;
+  font-family: "Roboto Serif", serif;
+  
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+/* TITLE */
+.title {
+  color: var(--accent-blue);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 48px;
+  letter-spacing: 0;
+   font-family: "Roboto Serif", serif;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+  justify-items: center;
+  font-family: "Roboto Serif", serif;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* CARD */
+.card {
+  width: 320px;
+  min-height: 320px;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 28px 28px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  position: relative;
+}
+
+/* Hover Lift */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE WRAP / IMAGE */
+.imageWrap {
+  width: 186px;
+  height: 186px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  margin-top: 6px;
+}
+
+.image {
+  width: 186px;
+  height: 186px;
+  object-fit: contain;
+  display: block;
+}
+
+/* CARD TITLE */
+.cardTitle {
+  margin-top: 18px;
+  color: var(--accent-blue);
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  font-family: "Roboto Serif", serif;
+}
+
+/* RESPONSIVE */
+@media (max-width: 719px) {
+  .card {
+    width: 260px;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .imageWrap {
+    width: 150px;
+    height: 150px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 28px;
+    font-family: "Roboto Serif", serif;
+  }
+  .cardTitle {
+  margin-top: 18px;
+  color: var(--accent-blue);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  font-family: "Roboto Serif", serif;
+}
+}

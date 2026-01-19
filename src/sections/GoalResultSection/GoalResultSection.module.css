@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500&display=swap");
+
+.section {
+  width: 100%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* IMAGE */
+.imageWrap {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  width: 100%;
+  max-width: 520px;
+  object-fit: contain;
+}
+
+/* RIGHT COLUMN */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* ONE ITEM (Goal / Result) */
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ICON + TITLE */
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3e6fc, #e8d3f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* TITLE STYLE */
+.title {
+  font-family: "Roboto Serif", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #8A51A3;
+  margin: 0;
+}
+
+/* DESCRIPTION STYLE */
+.description {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+  max-width: 650px;
+}

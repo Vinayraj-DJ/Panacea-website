@@ -1,0 +1,118 @@
+:root {
+  --text-color: #000000;
+  --primary-highlight: #e63946;
+  --secondary-highlight: #9b6b2f;
+}
+
+/* Root section - transparent background + even spacing */
+.travelSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 100px; /* creates clean even space around the section */
+  font-family: "Poppins", sans-serif;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Horizontal layout */
+.imageRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px; /* space between left and right sides */
+  flex-wrap: nowrap;
+}
+
+/* Reverse layout for mirrored alignment */
+.reverse .imageRow {
+  flex-direction: row-reverse;
+}
+
+/* Images */
+.leftImage {
+  width: 598px;
+  height: 517px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.rightImage {
+  width: 598px;
+  height: 372px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: transparent;
+  box-shadow: none;
+  margin-left: -37px;
+}
+
+/* Title */
+.title {
+  font-size: 36px;
+  line-height: 56px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+  max-width: 600px;
+}
+
+.highlight1 {
+  color: var(--primary-highlight);
+  font-weight: 500;
+}
+
+.highlight2 {
+  color: var(--secondary-highlight);
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .travelSection {
+    padding: 60px 40px;
+  }
+
+  .imageRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .leftImage,
+  .rightImage {
+    width: 90%;
+    height: auto;
+  }
+
+  .rightSide {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  .reverse .imageRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .travelSection {
+    padding: 40px 20px;
+  }
+}

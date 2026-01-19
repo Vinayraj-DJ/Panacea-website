@@ -1,0 +1,264 @@
+/* .page {
+  font-family: var(--Font_Family);
+  color: #333;
+  background: linear-gradient(135deg, #ffffff 0%, #f7ecff 40%, #e6f1ff 100%);
+  padding-bottom: 60px;
+}
+
+
+.header {
+  padding: 0 5.5rem;
+  margin: 30px auto 35px;
+}
+.title {
+  font-family: "Roboto Serif", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #436fb0;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+.line {
+  width: 60px;
+  height: 2px;
+  margin-left: 12px;
+  background: #436fb0;
+}
+.description {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+
+.grid {
+  max-width: 1280px;
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px;
+}
+
+
+.card {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+  margin-bottom: 60px;
+  --offset: 0px;
+  transform: translateY(var(--offset));
+}
+.card:hover .img { transform: scale(1.08); }
+
+
+.card1 { --offset: 0px; }
+.card2 { --offset: 22px; }
+.card3 { --offset: 0px; }
+.card4 { --offset: 22px; }
+
+
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 3 / 3;
+  overflow: hidden;
+  background: #fff;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+
+.caption {
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 88%;
+  text-align: center;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: #2d6ab1;
+  font-size: 16px;
+  box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+    text-align: left;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 14px;
+  }
+  .caption {
+    font-size: 14px;
+    bottom: -18px;
+  }
+} */
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@500;600&display=swap');
+
+/* Page background + base font (same as Application page) */
+.page {
+  font-family: var(--Font_Family, "Roboto", sans-serif);
+  color: #333;
+  background: linear-gradient(135deg, #ffffff 0%, #f7ecff 40%, #e6f1ff 100%);
+  padding-bottom: 60px;
+}
+
+/* Hero (identical structure) */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+.heroImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Social chips on hero */
+.heroSocialIcons {
+  position: absolute;
+  bottom: -58px;
+  right: 40px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+.social {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+.text { line-height: 1; }
+.linkedin:hover { background: #0a66c2; color: #fff; }
+.facebook:hover { background: #1877f2; color: #fff; }
+
+/* Header */
+.header {
+  padding: 0 5.5rem;
+  margin: 30px auto 35px;
+}
+.title {
+  font-family: "Roboto Serif", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #436fb0;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+.line {
+  width: 60px;
+  height: 2px;
+  margin-left: 12px;
+  background: #436fb0;
+}
+.description {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* Grid (aligned rows, no stagger) */
+.grid {
+  max-width: 1280px;
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+  margin-bottom: 60px; /* space for caption overlap */
+}
+.card:hover .img { transform: scale(1.08); }
+
+/* Image */
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 3 / 3;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+/* Caption chip */
+.caption {
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 88%;
+  text-align: center;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: #2d6ab1;
+  font-size: 16px;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { height: 260px; }
+  .heroSocialIcons { bottom: -24px; right: 16px; }
+  .social { width: 36px; height: 36px; font-size: 14px; }
+
+  .header { padding: 0 1rem; text-align: left; }
+  .title { font-size: 22px; }
+
+  .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .caption {
+    font-size: 14px;
+    bottom: -18px;
+  }
+}

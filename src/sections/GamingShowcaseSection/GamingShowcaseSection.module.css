@@ -1,0 +1,91 @@
+/* Roboto Serif */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap");
+
+:root {
+  --font: "Roboto Serif", serif;
+}
+
+/* Section wrapper */
+.section {
+  width: 100%;
+  padding: 50px 0;
+  font-family: var(--font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+/* Background container */
+.bgContainer {
+  width: 100%;
+  max-width: 1440px;
+  height: 710px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 16px;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wrapper that centers the image perfectly */
+.showcaseWrapper {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+
+  width: 200%;
+  height: 150%;
+
+  /* Maintain Figma design ratio EXACTLY 925 × 522 */
+  max-width: 925px;
+  max-height: 522px;
+padding: 25% 0% 0% 0%;
+  margin-left: -150px;          
+}
+
+/* The combined phones image */
+.showcaseImage {
+  width: 150%;
+  height: auto;
+  object-fit: contain;      /* ensures equal left & right spacing */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.showcaseImage:hover {
+  transform: scale(1.02);
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 1024px) {
+  .bgContainer {
+    height: 550px;
+  }
+
+  .showcaseWrapper {
+    max-width: 700px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bgContainer {
+    height: 420px;
+  }
+
+  .showcaseWrapper {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .showcaseImage {
+    border-radius: 12px;
+  }
+}

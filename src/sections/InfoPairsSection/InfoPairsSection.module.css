@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --card-radius: 16px;
+  --card-padding: 28px;
+  --shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+  --accent: #E76F51;
+
+  /* NEW: card height variable (adjust to taste) */
+  --card-height: 360px;
+}
+
+/* Section wrapper */
+.section {
+  background: transparent;
+  font-family: "Roboto Serif", serif;
+  box-sizing: border-box;
+}
+
+/* Layout container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Two-column grid per row */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Text card — force same height as image via min-height */
+.textCard {
+  background: var(--bg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(16, 24, 40, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--card-height); /* NEW: equal height */
+  box-sizing: border-box;
+}
+
+/* Keep text content vertically centered if short */
+.textCard .cardTitle,
+.textCard .bullets,
+.textCard .desc {
+  /* nothing here — content will naturally sit centered due to justify-content */
+}
+
+/* Title */
+.cardTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+/* Bullets */
+.bullets {
+  margin: 0;
+  padding-left: 22px;
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.bullets li {
+  margin-bottom: 28px;
+}
+
+.desc {
+  margin: 0;
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Image card (clean transparent) */
+.imageCard {
+  background: transparent; /* removed white background */
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  align-items: stretch; /* make child image stretch vertically */
+  justify-content: center;
+  min-height: var(--card-height); /* NEW: equal height */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Image fills the card area while keeping aspect via object-fit */
+.image {
+  width: 100%;
+  height: 100%; /* NEW: fill available height */
+  object-fit: cover;
+  display: block;
+  border-radius: 12px; /* optional rounding of the image itself */
+}
+
+/* Responsive: reduce card height and stack to single column on smaller screens */
+@media (max-width: 1000px) {
+  :root {
+    --card-height: 300px; /* slightly shorter on medium screens */
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    gap: 20px;
+  }
+
+  .textCard,
+  .cardTitle,
+  .bullets,
+  .desc {
+    text-align: left;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .bullets {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --card-height: 220px; /* mobile-friendly height */
+  }
+
+  .textCard {
+    padding: 18px;
+    min-height: var(--card-height);
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .bullets {
+    font-size: 15px;
+  }
+}

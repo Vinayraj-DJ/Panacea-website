@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap");
+
+:root{
+  --card-radius: 16px;
+  --card-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  --card-bg: #ffffff;
+  --gap: 20px;
+  --max-width: 1200px;
+  --text-color: #000000;
+}
+
+/* wrapper for each pair */
+.pair {
+  font-family: "Roboto Serif", serif;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 24px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* grid: two columns side-by-side */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: stretch; /* ensure both columns stretch equally */
+}
+
+/* when reverse === true, swap visual order by changing direction */
+.row.reverse {
+  direction: rtl;
+}
+.row.reverse > .col {
+  direction: ltr;
+}
+
+/* column base */
+.col {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column; /* allow equal-height cards */
+}
+
+/* content card (white, rounded, bullets) */
+.contentCard {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 36px 36px;
+  box-sizing: border-box;
+  min-height: 220px;
+  height: 100%; /* equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top aligned text */
+  
+}
+
+/* content wrapper inside card */
+.contentInner {
+  max-width: 560px;
+  width: 100%;
+  padding: 6px 8px;
+  
+   
+}
+
+/* bullets styling */
+/* .bullets {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 400;
+  list-style-type: disc;
+} */
+
+
+.bullets {
+  margin: 0;
+  padding-left: 26px;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 400;
+  list-style-type: disc;
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* 🔥 Equal gap between bullet points */
+  
+}
+
+.bullets li {
+  line-height: 1.6;
+  font-family: "Roboto Serif", serif !important;
+}
+
+
+/* image card */
+.imageCard {
+  width: 100%;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  min-height: 220px;
+  height: 100%; /* equal height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills space evenly */
+}
+
+/* default aspect */
+.imageCard.aspect {
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .row.reverse {
+    direction: ltr;
+  }
+  .contentCard {
+    padding: 20px;
+    min-height: auto;
+    height: auto;
+  }
+  .contentInner { 
+    max-width: 100%;
+    padding: 4px 6px;
+  }
+  .bullets { 
+    font-size: 18px; 
+  }
+  .imageCard.aspect { 
+    aspect-ratio: 4 / 3; 
+    min-height: 160px; 
+    height: auto;
+  }
+}

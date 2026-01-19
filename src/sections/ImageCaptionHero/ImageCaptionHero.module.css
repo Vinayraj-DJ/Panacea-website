@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap");
+
+:root {
+  --overlay-bg: rgba(0, 0, 0, 0.05); /* almost invisible but blur shows */
+  --overlay-radius: 0px;
+  --overlay-blur: 32px;
+}
+
+
+/* FULL-WIDTH HERO */
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove max-width so image spans entire page */
+.heroInner {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* IMAGE - full width, no shadow, no border-radius */
+.heroImg {
+  width: 100%;
+  height: 700px;   /* matches your screenshot */
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* *** BLURRED BOTTOM OVERLAY (FULL-WIDTH) *** */
+.captionWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;         /* always stick to bottom */
+  padding: 22px 40px;
+
+  background: var(--overlay-bg);
+  backdrop-filter: blur(var(--overlay-blur));
+  -webkit-backdrop-filter: blur(var(--overlay-blur));
+
+  border-radius: 0; /* no curves */
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 10%;
+}
+
+/* LIMIT TEXT MAX WIDTH CENTERED LIKE Figma */
+.captionInner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* TEXT */
+.caption {
+  margin: 0;
+  font-family: "Roboto Serif", serif;
+  font-size: var(--caption-size, 32px);
+  line-height: 1.6;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* TABLET */
+@media (max-width: 1100px) {
+  .heroImg {
+    height: 520px;
+  }
+  .caption {
+    font-size: 24px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .heroImg {
+    height: 400px;
+  }
+  .captionWrap {
+    padding: 16px 20px;
+  }
+  .caption {
+    font-size: 15px;
+  }
+}

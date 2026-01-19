@@ -1,0 +1,309 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+
+
+
+.section,
+.container,
+.rightCol,
+.heading,
+.headingLine,
+.productBody,
+.price,
+/* .title, */
+/* .subtitle, */
+.addToCartBtn {
+  font-family: "Roboto Serif", serif !important;
+}
+
+
+
+
+
+:root{
+  --max-width: 1200px;
+  --gutter: 32px;
+  --card-radius: 18px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.10);
+  --muted: #868889;
+  --green-bg: #C6F6D7;
+}
+
+/* =========================
+   UserGrocery.module.css
+   Full stylesheet (products side-by-side, 2nd slightly up)
+   ========================= */
+
+/* section wrapper */
+.section{
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* centered container: left showcase + right column */
+.container{
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+/* showcase (left big image) */
+.showcaseWrap{
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.showcaseImg{
+  width: 100%;
+  height: 419px;
+  object-fit: cover;
+  display: block;
+}
+
+/* right column (heading + cards) */
+.rightCol{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+/* heading (stacked lines) */
+.heading{
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.headingLine{
+  font-size: 36px;
+  line-height: 1.6; /* 160% */
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+}
+
+/* =========================
+   Product stack (SIDE-BY-SIDE with stagger)
+   ========================= */
+/* Desktop: place cards side-by-side with horizontal gap */
+.productStack{
+  display: flex;
+  flex-direction: row;      /* side-by-side */
+  gap: 18px;                /* horizontal gap between cards */
+  margin-top: 8px;
+  position: relative;
+  align-items: flex-end;    /* align baseline so second can be nudged up */
+}
+
+/* base product card */
+.productItem{
+  width: 181px;
+  height: 234px;
+  background: var(--green-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/* nudge the second card up for staggered look */
+.productStack > .productItem:nth-child(1) {
+  transform: translateY(0);
+  z-index: 1;
+}
+.productStack > .productItem:nth-child(2) {
+  transform: translateY(-85px); /* second card appears higher */
+  z-index: 2;
+}
+
+
+
+/* hover lift increases depth but preserves stagger */
+.productItem:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.14);
+  z-index: 30;
+}
+
+/* -------------------------
+   Heart (top-right)
+   ------------------------- */
+.heartBtn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+}
+.heartIcon{
+  width: 16px;
+  height: 14px;
+  display: block;
+  stroke: #868889;
+  fill: none;
+}
+
+/* -------------------------
+   Circular media area
+   ------------------------- */
+.productMedia{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.mediaCircle{
+  width: 84px;
+  height: 84px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.productImage{
+  width: 90px;
+  height: 72px;
+  object-fit: contain;
+  margin-top: -6px;
+  display: block;
+}
+.imagePlaceholder{
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f6f6f6;
+}
+
+/* -------------------------
+   Body: price / title / subtitle
+   ------------------------- */
+.productBody{
+  padding: 6px 12px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.price{
+  color: #3aa73a;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 2px;
+}
+.title{
+  font-size: 20px;
+  font-weight: 700;
+  color: #07110a;
+  margin: 0;
+}
+.subtitle{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* -------------------------
+   Divider + Add to cart
+   ------------------------- */
+.divider{
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.18);
+  margin-top: 6px;
+}
+.addToCartBtn{
+  width: 100%;
+  height: 56px;
+  border: 0;
+  background: rgba(0,0,0,0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #07110a;
+}
+.cartIcon{
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: block;
+}
+
+/* =========================
+   Responsive: tablet & mobile
+   ========================= */
+@media (max-width: 1100px) {
+  .container{
+    grid-template-columns: 1fr 320px;
+  }
+  .showcaseImg{ height: 360px; }
+  .productItem{ width: 165px; height: 220px; }
+  .mediaCircle{ width: 72px; height: 72px; }
+  .productImage{ width: 84px; height: 64px; margin-top: -6px; }
+}
+
+/* On small screens: stack vertically and remove stagger */
+@media (max-width: 900px) {
+  .container{
+    grid-template-columns: 1fr;
+  }
+
+  .rightCol{
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+    justify-content: space-between;
+  }
+
+  .heading {
+    order: 1;
+    flex: 1 1 100%;
+  }
+
+  .productStack{
+    order: 2;
+    flex-direction: column; 
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  /* reset transforms when stacked */
+  .productStack > .productItem:nth-child(1),
+  .productStack > .productItem:nth-child(2) {
+    transform: none;
+    z-index: auto;
+  }
+
+  .productItem{
+    width: 160px;
+    height: 200px;
+  }
+
+  .showcaseImg { height: 260px; }
+  .headingLine { font-size: 28px; }
+  .productImage{ width: 78px; height: 60px; }
+}

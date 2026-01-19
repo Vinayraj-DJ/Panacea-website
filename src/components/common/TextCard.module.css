@@ -1,0 +1,16 @@
+/* components/common/TextCard.module.css */
+.wrap {
+  max-width: 680px; margin: 24px auto; padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(241,247,255,.9), rgba(250,241,255,.9));
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+.title {
+  font-family: "Roboto Serif", serif; font-weight: 500; font-size: 26px;
+  line-height: 160%; color: #4070b1; margin: 0 0 12px;
+}
+.text {
+  font-family: "Roboto Serif", serif; font-weight: 400; font-size: 20px;
+  line-height: 160%; color: rgba(0,0,0,.6);
+}
+@media (max-width: 768px){ .wrap{ margin: 16px 1rem; padding: 18px; } .title{ font-size: 20px; } .text{ font-size: 16px; } }

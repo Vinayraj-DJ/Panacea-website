@@ -1,0 +1,12 @@
+/* src/components/Button/Button.module.css */
+.button {
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.button:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}

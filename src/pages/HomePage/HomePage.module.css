@@ -1,0 +1,33 @@
+.pageBackground {
+background: url("../../assets/images/HeroSection.png") center/cover no-repeat;
+}
+.herosection{
+    padding:1.3rem;
+}
+/* Hide on mobile */
+.desktopOnly {
+    display: block;
+    padding:1rem;
+    border:2px red;
+}
+
+.mobileOnly {
+    display: none;
+}
+.teamsection{
+    padding:1rem;
+  
+}
+@media (max-width: 768px) {
+
+    /* Hide desktop version, show mobile */
+    .desktopOnly {
+        display: none;
+    }
+
+    .mobileOnly {
+        display: block;
+        padding:0   0 0px 0;
+    }
+}
+/* src/pages/HomePage/HomePage.module.css */

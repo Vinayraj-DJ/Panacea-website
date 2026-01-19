@@ -1,0 +1,69 @@
+/* Import Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Theme Variables */
+:root {
+  --Primary_Color: #993399;
+  --Background_Color: #fcfbff;
+
+  --White_Color: #ffffff;
+  --Grey_Color: #ada0a0;
+  --Black_Color: #000000;
+
+  --Error_Color: #c0392b;
+  --Success_Color: #27ae60;
+  --Warning_Color: #e67e22;
+  --Info_Color: #2980b9;
+
+  --Utility_Color1: #ecf4ff;
+
+  /* Font family */
+  --Font_Family: 'Montserrat', sans-serif;
+
+  /* Font Sizes */
+  --Font_Size_1: 12px;
+  --Font_Size_2: 14px;
+  --Font_Size_3: 15px;
+  --Font_Size_4: 20px;
+  --Font_Size_5: 24px;
+}
+
+/* Reset + Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--Font_Family);
+  /* ✅ Montserrat applied globally */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: var(--Font_Family);
+  /* ✅ Montserrat for body */
+  background-color: var(--Background_Color);
+  color: var(--Black_Color);
+}
+
+
+
+
+
+

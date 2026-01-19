@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600&display=swap");
+
+
+
+
+:root{
+  --max-width: 1300px;
+  --gutter: 28px;
+  --bullet-font-size: 18px;
+  --bullet-line-height: 2;
+}
+
+/* ---------------------------
+   Top section (bullets + image)
+   --------------------------- */
+.section{
+  width: 100%;
+  padding: 16px 20px 8px;  /* tightened so sections sit close */
+  font-family: "Roboto Serif", serif;
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+
+/* wrapper for NumberedHeading: removes heading margin gap */
+.headingWrap {
+  margin: 0 !important;
+  padding: 0 !important;
+  
+}
+
+/* reset heading margins inside NumberedHeading */
+.headingWrap h1,
+.headingWrap h2,
+.headingWrap h3,
+.headingWrap h4,
+.headingWrap h5,
+.headingWrap h6 {
+  margin: 0 !important;
+  padding: 0 !important;
+  
+}
+
+/* inner layout */
+.inner{
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto !important;
+  display: grid;
+  grid-template-columns: 1fr 660px;
+  gap: var(--gutter);
+  align-items: start;
+  height: auto !important;
+  min-height: auto !important;
+  padding-bottom: 0 !important;
+  
+}
+
+/* left column */
+.leftCol{
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 100px;
+
+}
+
+/* bullets container */
+.bulletsWrap{
+  max-width: 720px;
+  margin: 0 !important;
+}
+
+/* forcing UL reset to eliminate gaps from user-agent styles */
+.bullets{
+  list-style-type: disc;
+  padding-left: 28px;
+  margin: 0 !important;
+  font-size: var(--bullet-font-size);
+  line-height: var(--bullet-line-height);
+  color: #111;
+}
+
+/* list items */
+.bulletItem{
+  margin: 0 0 12px 0;
+}
+
+/* right column: ensure top alignment so it doesn't force height */
+.rightCol{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start !important;
+}
+
+/* image wrapper: do NOT force a fixed height */
+.imageWrapper{
+  width: 607px;
+  height: auto !important;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: flex-end;
+  margin: 0 !important;
+}
+
+/* image scales inside wrapper */
+.image{
+  width: 100%;
+  height: auto;
+  max-height: 607px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---------------------------
+   Features section (single image)
+   --------------------------- */
+.featuresSection {
+  width: 100%;
+  padding: 0 20px 24px !important;  /* removed top gap, small bottom padding */
+  box-sizing: border-box;
+  font-family: "Roboto Serif", serif;
+  margin: 0 !important;
+}
+
+.featuresImageWrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.featuresImage {
+  width: 100%;
+  max-width: 1217px;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;
+}
+
+/* ---------------------------
+   Responsive rules
+   --------------------------- */
+@media (max-width: 1100px){
+  .inner{
+    grid-template-columns: 1fr 520px;
+  }
+  .imageWrapper{
+    width: 520px;
+  }
+  .featuresImage {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 900px){
+  .inner{
+    grid-template-columns: 1fr;
+  }
+  .rightCol{
+    justify-content: center;
+  }
+  .imageWrapper{
+    width: 420px;
+  }
+  .featuresImage {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 480px){
+  .imageWrapper{
+    width: 300px;
+  }
+  .bullets{
+    font-size: 16px;
+  }
+  .featuresImage {
+    max-width: 360px;
+  }
+}

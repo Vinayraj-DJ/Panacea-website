@@ -1,0 +1,134 @@
+/* CtaPanel.module.css
+   Figma-driven sizes/colors from screenshots.
+   Fonts: Roboto Serif (title/desc) to match your app typography.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500&display=swap');
+
+:root {
+  --cta-title-color: #4070B1;           /* title blue */
+  --cta-text-color: rgba(0, 0, 0, 0.6); /* body 60% black */
+  --cta-button-bg: #4070B1;
+  --cta-button-fg: #FFFFFF;
+  --cta-button-radius: 12px;
+}
+
+/* Outer section takes the page width; content is constrained via max-width */
+.panel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px; /* gives breathing room above the footer */
+  background: transparent; /* keep parent background; no card chrome */
+}
+
+/* Content frame that matches 794px width from Figma */
+.inner {
+  width: 100%;
+  max-width: 794px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Roboto Serif', serif;
+}
+
+/* allow switching to left-aligned if needed */
+.left { text-align: left; align-items: flex-start; }
+.center { text-align: center; align-items: center; }
+
+/* Title — 32px, weight 500, line-height 160%, color #4070B1 */
+.title {
+  margin: 0;
+  color: var(--cta-title-color);
+  font-weight: 500;         /* Medium */
+  font-size: 32px;
+  line-height: 160%;        /* per Figma */
+  letter-spacing: 0;        /* Figma shows 0% */
+  font-family: 'Roboto Serif', serif;
+}
+
+/* Description — 18px, lh 28px, 60% black */
+.desc {
+  margin: 0;
+  color: var(--cta-text-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px; /* exact from Figma */
+  max-width: 100%;
+  font-family: 'Roboto Serif', serif;
+}
+
+/* Button row lets the CTA sit centered or left */
+.buttonRow {
+  display: flex;
+  width: 100%;
+  justify-content: center;  /* default center */
+}
+
+/* Primary CTA — 163x44, radius 12, 16px/500, letter-spacing 0.5px */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Dimensions from Figma — allow intrinsic sizing but clamp min/tap area */
+  min-width: 163px;
+  min-height: 44px;
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: var(--cta-button-radius);
+
+  background: var(--cta-button-bg);
+  color: var(--cta-button-fg);
+  text-decoration: none;
+
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;     /* Medium */
+  font-size: 16px;
+  line-height: 1;       /* Figma shows 100% */
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(64, 112, 177, 0.22);
+}
+
+.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(64, 112, 177, 0.18);
+}
+
+.cta:focus-visible {
+  outline: 2px solid rgba(64, 112, 177, 0.55);
+  outline-offset: 3px;
+}
+
+/* Responsive tweaks: keep typography pleasant on small screens */
+@media (max-width: 768px) {
+  .panel { padding: 40px 12px; }
+  .inner { gap: 20px; }
+  .title {
+    font-size: 26px;
+    line-height: 140%;
+  }
+  .desc {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .cta {
+    min-width: 148px;
+    min-height: 42px;
+    padding: 10px 18px;
+  }
+}
+
+/* Allow left alignment variant to keep button aligned left */
+.left .buttonRow { justify-content: flex-start; }

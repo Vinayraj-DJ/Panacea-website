@@ -1,0 +1,151 @@
+/* src/sections/OTTHeroSection/OTTHeroSection.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+:root {
+  --accent-blue: #4070b1;
+  /* --section-padding-vertical: 36px; */
+  --max-hero-width: 1450px; /* matches screenshot width */
+  --hero-aspect-ratio: 1.33; /* fallback aspect ratio */
+}
+
+/* SECTION container */
+.section {
+  width: 100%;
+  padding: var(--section-padding-vertical) 16px;
+  box-sizing: border-box;
+  font-family: "Roboto Serif", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #fff 0%, #fff8f2 30%, #faf6ff 100%);
+}
+
+/* optional centered title above image */
+.title {
+  color: var(--accent-blue);
+  font-size: 32px;
+  font-weight: 500;
+  margin: 6px 0 18px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* visual wrap holds the large hero and phone overlay */
+.visualWrap {
+  width: 100%;
+  max-width: var(--max-hero-width);
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  /* padding: 0 12px; */
+  margin: 0 auto;
+}
+
+/* hero frame - ensures image scales responsively */
+.heroFrame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* main hero image */
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  /* keep sharp on large screens */
+}
+
+/* phone overlay wrapper - positioned to the right inside hero */
+.phoneWrap {
+  position: absolute;
+  /* place phone roughly where screenshot shows: right side, centered vertically */
+  right: 6%;
+  top: 24%;
+  transform: translateY(-10%);
+  width: 192px; /* matches screenshot phone width approx */
+  pointer-events: none; /* visual only */
+  display: block;
+}
+
+/* phone image sizing */
+.phoneImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+/* small decorative left phone on very large screens (optional) */
+/* If you want another phone on the left, reuse .phoneWrap and place left:6% */
+
+/* RESPONSIVE ADJUSTMENTS */
+
+/* large desktop (>= 1400px) — keep phone size bigger and shifted a bit */
+@media (min-width: 1400px) {
+  .phoneWrap {
+    width: 220px;
+    top: 28%;
+    right: 6%;
+  }
+}
+
+/* medium screens */
+@media (max-width: 1200px) {
+  .phoneWrap {
+    width: 180px;
+    top: 28%;
+    right: 6%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
+
+/* tablet / small laptop */
+@media (max-width: 900px) {
+  .phoneWrap {
+    width: 150px;
+    top: 30%;
+    right: 6%;
+  }
+
+  .heroImage {
+    /* limit height so visuals don't become too tall */
+    max-height: 720px;
+    object-position: center top;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+/* mobile phones: stack and remove absolute phone overlay (place phone below) */
+@media (max-width: 520px) {
+  .visualWrap {
+    padding: 0 8px;
+  }
+
+  .phoneWrap {
+    position: static;
+    transform: none;
+    width: 220px; /* phone shown below hero */
+    margin: 16px auto 0;
+    pointer-events: auto;
+  }
+
+  .heroImage {
+    max-height: none;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+}

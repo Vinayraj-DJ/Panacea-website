@@ -1,0 +1,89 @@
+.section {
+    padding: 80px 20px  40px 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Heading + Subheading */
+.heading {
+    font-family: "Roboto Serif", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #436fb0;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+    padding: 0 5rem;
+}
+
+.heading::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: #436fb0;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+.subheading {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+    margin: 0 auto 40px;
+    padding: 0 5rem;
+  
+}
+
+/* Scrollable Cards Container */
+.scrollContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    margin-left: 5rem;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px 12px 70px;
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollContainer::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.scrollContainer>* {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .section {
+            padding: 40px 20px 40px 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    .heading {
+        font-size: 22px;
+        padding: 0 1rem;
+    }
+
+    .subheading {
+        font-size: 16px;
+        padding: 0 1rem;
+    }
+
+    .scrollContainer {
+        gap: 16px;
+        padding: 0 12px 10px 12px;
+        margin-left: 0rem;
+        scroll-padding-left: 8px;
+    }
+}

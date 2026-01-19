@@ -1,0 +1,126 @@
+.section {
+    background-color: #434343;
+    padding: 140px 20px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.imageWrapper {
+    flex: 0 0 39%;
+}
+
+/* left image */
+.image {
+    width: 100%;
+    height: auto;
+    
+    object-fit: cover;
+}
+
+.content {
+    flex: 0 0 55%;
+}
+
+/* right text block */
+
+/* --- Exact typography from your screenshots --- */
+.title {
+    font-family: "Roboto Serif", serif;
+    font-size: 24px;
+    font-weight: 600;
+    /* SemiBold */
+    line-height: 28px;
+    /* matches Figma “Auto ≈ 28px” for 24px */
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: #ffffff;
+}
+
+.text {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+  
+    /* Figma */
+    font-weight: 400;
+    /* Regular */
+    line-height: 28px;
+    /* Figma value */
+    color: rgba(255, 255, 255, 0.8);
+    /* 80% white from Figma */
+    margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .imageWrapper,
+    .content {
+        flex: 1 1 100%;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+    /* keep left-aligned like Figma */
+}
+/* ===================== Mobile (<=600px) ===================== */
+@media (max-width: 600px) {
+    .section {
+        padding: 30px 16px;
+        /* tighter padding */
+        text-align: center;
+        /* center align everything */
+    }
+
+    .container {
+        flex-direction: column;
+        /* stack image + text */
+        gap: 24px;
+        /* balanced spacing */
+    }
+
+    .imageWrapper {
+        flex: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image {
+        max-width: 320px;
+        /* prevent oversized images */
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        /* optional for softer look */
+    }
+
+    .content {
+        flex: none;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    .text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+}

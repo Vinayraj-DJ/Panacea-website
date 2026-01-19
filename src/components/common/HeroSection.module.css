@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600&display=swap");
+
+.heroSection {
+  font-family: "Roboto Serif", serif;
+  padding: 60px 40px;
+  background: var(--hero-background, linear-gradient(90deg, #ffffff 0%, #faf5ff 100%));
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Reverse layout dynamically */
+.reverse .container {
+  flex-direction: row-reverse;
+}
+
+.textBlock {
+  flex: 1;
+  max-width: var(--content-max-width, 560px);
+}
+
+.title {
+  color: var(--hero-accent, #4070b1);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-family: "Roboto Serif", serif;
+}
+
+.description {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+    font-family: "Roboto Serif", serif;
+}
+.description2 {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  font-family: "Roboto Serif", serif;
+}
+
+/* .imageBlock {
+  flex: 1;
+  max-width: 530px;
+  display: flex;
+  justify-content: center;
+} */
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); */
+ 
+}
+
+/* Responsive design */
+@media (max-width: 960px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse .container {
+    flex-direction: column;
+  }
+
+  .textBlock {
+    max-width: 100%;
+  }
+
+  .imageBlock {
+    margin-top: 20px;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 24px;
+    font-family: "Roboto Serif", serif;
+  }
+
+  .description {
+    font-size: 18px;
+    font-family: "Roboto Serif", serif;
+  }
+   .description2 {
+    font-size: 18px;
+    font-family: "Roboto Serif", serif;
+  }
+}
+
+@media (max-width: 540px) {
+  .heroSection {
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-family: "Roboto Serif", serif;
+  }
+
+  .description {
+    font-size: 16px;
+    font-family: "Roboto Serif", serif;
+  }
+  .description2 {
+    font-size: 16px;
+    font-family: "Roboto Serif", serif;
+  }
+}

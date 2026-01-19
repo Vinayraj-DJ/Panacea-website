@@ -1,0 +1,159 @@
+/* ✅ Import Roboto Serif font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+/* ✅ Outer wrapper for white background around the pink box */
+.featuresWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 60px 20px;
+}
+
+/* ✅ Main section (inner box with rounded corners and background) */
+.featuresSection {
+  width: 100%;
+  max-width: 1280px;
+  border-radius: 30px;
+  background-color: #f8e6ff;
+  padding: 80px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* ✅ Apply "Roboto Serif" to ALL content inside section */
+.featuresSection,
+.featuresSection * {
+  font-family: "Roboto Serif", serif !important;
+}
+
+/* ✅ Inner content container */
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ✅ Section title */
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #4070b1; /* Blue as per design */
+  margin-bottom: 12px;
+  text-align: center;
+  font-family: "Roboto Serif", serif;
+}
+
+/* ✅ Subtitle */
+.subtitle {
+  font-size: 16px;
+  color: #4f4f4f;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: "Roboto Serif", serif;
+}
+
+/* ✅ Grid layout for cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 35px;
+  justify-items: center;
+}
+
+/* ✅ Feature Card */
+.card {
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 4px 16px rgba(225, 234, 246, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(225, 234, 246, 1);
+}
+
+/* ✅ Card image */
+.image {
+  width: 117px;
+  height: auto;
+  margin-bottom: 15px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+/* ✅ Card title */
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4070b1;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: "Roboto Serif", serif;
+}
+
+/* ✅ Card description */
+.cardDesc {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+  text-align: center;
+  font-family: "Roboto Serif", serif;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 992px) {
+  .featuresSection {
+    padding: 60px 30px;
+  }
+
+  .grid {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 25px 15px;
+  }
+
+  .image {
+    width: 90px;
+  }
+}

@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+:root {
+  --accent-blue: #4070b1;
+  --muted: rgba(0, 0, 0, 0.7);
+}
+
+/* Container */
+.headingRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-start;
+  font-family: "Roboto Serif", serif;
+  width: 100%;
+  padding: 8px 0;
+  margin-left: 80px;  /* ✅ Left spacing */
+  margin-top: 80px;   /* ✅ Top spacing */
+}
+
+/* Circle number */
+.numberWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3e2ff 0%, #fff8f1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Title text */
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.4;
+  font-family: "Roboto Serif", serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .headingRow {
+    margin-left: 40px; /* smaller left margin on tablets */
+    margin-top: 60px;  /* smaller top margin */
+  }
+}
+
+@media (max-width: 600px) {
+  .headingRow {
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+
+  .numberWrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .number {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}

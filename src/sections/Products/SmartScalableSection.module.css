@@ -1,0 +1,140 @@
+.section {
+    background: #434343;
+    padding: 70px 20px 110px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.heading {
+    font-family: "Roboto Serif", serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 32px;
+    color: #fff;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+/* Card */
+.card {
+    position: relative;
+   
+    overflow: hidden;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.35);
+}
+
+.img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+    transform: scale(1.3);
+}
+
+/* Label with bottom overlay */
+.label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: "Roboto Serif", serif;
+    text-align: center;
+
+    /* Gradient background */
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.3) 60%,
+            transparent 100%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .img {
+        height: 240px;
+    }
+
+    .heading {
+        font-size: 20px;
+    }
+}
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img {
+        height: 200px;
+    }
+}
+
+/* MOBILE: show 3 cols and keep visual tweaks */
+@media (max-width: 600px) {
+    .section {
+            background: #434343;
+            padding: 50px 20px 80px;
+            color: #fff;
+        }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 items per row on mobile */
+        gap: 12px;
+        /* tighten gaps to fit 3 across */
+    }
+
+    .img {
+        height: 120px;
+        /* reduce height so 3-up looks balanced */
+    }
+
+    .heading {
+        font-size: 18px;
+    }
+
+    .card {
+        margin-bottom: 8px;
+        /* small vertical gap between rows */
+    }
+
+    .label {
+        font-size: 12px;
+        padding: 8px 6px;
+    }
+}

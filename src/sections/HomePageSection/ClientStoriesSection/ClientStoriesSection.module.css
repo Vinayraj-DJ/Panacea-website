@@ -1,0 +1,47 @@
+.section {
+    padding: 25px 20px;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 400;
+    color: #4070b1;
+    margin-bottom: 16px;
+}
+
+.scrollContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px 12px 70px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollContainer>* {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+/* ✅ Responsive for Mobile */
+@media (max-width: 768px) {
+    .section {
+        padding: 15px 8px;
+    }
+
+    .heading {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .scrollContainer {
+        gap: 16px;
+        padding: 0 12px 10px 12px;
+        scroll-padding-left: 8px;
+    }
+}

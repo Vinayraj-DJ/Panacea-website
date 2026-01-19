@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@500&display=swap');
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: var(--hero-h, 420px);
+  overflow: hidden;
+  background: #eaf1ff;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ Text perfect centered inside chip */
+.chip {
+  position: absolute;
+  top: var(--chip-top, 179px);
+  left: var(--chip-left, 93px);
+  width: var(--chip-w, 278px);
+  height: var(--chip-h, 161px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ✅ vertical center */
+
+  padding: 0 20px;
+
+  background: rgba(64, 112, 177, var(--chip-alpha, 0.6));
+  border: calc(var(--chip-outline, 1) * 2px) solid rgba(64, 112, 177, 0.6);
+  border-radius: 4px;
+
+  text-align: center;
+}
+
+.title {
+  font-family: "Roboto Serif", serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #fff;
+
+  white-space: normal;     /* ✅ wrap by words */
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* ✅ Mobile: full-width bottom ribbon */
+@media (max-width: 768px) {
+  .hero { height: 260px; }
+
+  .chip {
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 20px;
+    width: min(92%, 680px);
+    height: auto;
+    padding: 12px 16px;
+    border-radius: 6px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}

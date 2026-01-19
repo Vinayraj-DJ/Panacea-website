@@ -1,0 +1,136 @@
+/* PlatformFeaturesSection.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap");
+
+:root{
+  --accent-blue: #4070B1;
+  --card-bg: #FFFEFC;
+  --card-radius: 20px;
+  --card-shadow: 0 4px 18px rgba(225,234,246,0.9);
+  --pill-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  --muted: rgba(0,0,0,0.6);
+  --container-padding: 48px;
+}
+
+/* SECTION */
+.section{
+  width:100%;
+  padding: var(--container-padding) 24px;
+  box-sizing:border-box;
+  font-family: "Roboto Serif", serif;
+  background: linear-gradient(90deg,#fff 0%, #fff8f2 40%, #faf6ff 100%);
+}
+
+/* TITLE (centered above cards) */
+.title{
+  color: var(--accent-blue);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 30px;
+  font-family: "Roboto Serif", serif;
+}
+
+/* CONTAINER FOR CARDS */
+.platforms{
+  display:flex;
+  gap: 28px;
+  justify-content:center;
+  align-items:stretch;
+  flex-wrap:wrap;
+  
+}
+
+/* CARD (match Figma dimensions ~533x276, radius 20, soft shadow) */
+.card{
+  width: 533px;           /* exact width from Figma screenshot */
+  height: 276px;          /* exact height from Figma screenshot */
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--pill-shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  display:flex;
+  gap: 24px;
+  padding: 22px 28px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+/* ICON AREA - large square to match 200x200 icon */
+.iconWrap{
+  width: 200px;
+  height: 200px;
+  min-width:200px;
+  min-height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: transparent;
+  
+}
+
+.icon{
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  display:block;
+}
+
+/* TEXT AREA: keep title center-aligned like the image reference */
+.body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center; /* center horizontally to match Figma */
+  text-align:center;
+  padding-right: 8px;
+}
+
+/* PLATFORM NAME */
+.name{
+  color: var(--accent-blue);
+  font-size: 28px;      /* Figma shows 28px */
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-family: "Roboto Serif", serif;
+}
+
+/* DESCRIPTION */
+.desc{
+  margin:0;
+  color: var(--muted);
+  font-size: 18px;      /* Figma shows 20px */
+  line-height: 1.6;
+  max-width: 400px;     /* keep readable measure */
+  word-wrap: break-word;
+  font-family: "Roboto Serif", serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .card { width: 480px; height: auto; padding:20px; gap:18px; }
+  .iconWrap { width: 160px; height: 160px; min-width:160px; min-height:160px; }
+  .icon { width:160px; height:160px; }
+  .name { font-size: 24px; }
+  .desc { font-size: 18px; max-width: 280px; }
+}
+
+@media (max-width: 720px) {
+  .platforms { flex-direction:column; gap:18px; align-items:center; }
+  .card { width: 100%; max-width: 520px; height: auto; padding:18px; flex-direction:row; }
+  .iconWrap { width: 120px; height: 120px; min-width:120px; min-height:120px; }
+  .icon { width:120px; height:120px; }
+  .body { align-items:flex-start; text-align:left; padding-right:0; }
+  .name { font-size: 22px; text-align:left; }
+  .desc { font-size: 16px; text-align:left; max-width: none; }
+  .title{
+  color: var(--accent-blue);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 30px;
+  font-family: "Roboto Serif", serif;
+}
+}

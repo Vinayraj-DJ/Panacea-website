@@ -1,0 +1,132 @@
+/* Section wrapper */
+.section {
+    padding: 50px 0 56px;
+font-family: (--Font_Family)
+   
+}
+
+/* Centered container with gutters */
+.container {
+    margin: 0 auto;
+    padding: 0 24px;
+    max-width: 1280px;
+}
+
+/* Heading + line */
+.heading {
+    margin: 0 0 8px 0;
+    color: #436fb0;
+    font-weight: 600;
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.heading::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: #436fb0;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+.subtext {
+    margin: 0 0 24px 0;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 720px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.tab:hover {
+    color: #4070b1;
+}
+
+.active {
+    color: #4070b1;
+    font-weight: 600;
+    background: #e9f0fb;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+/* ✅ Grid with consistent card sizing */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 420px));
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1300px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(300px, 420px));
+        justify-content: center;
+    }
+}
+
+@media (max-width: 740px) {
+    .grid {
+        grid-template-columns: minmax(280px, 1fr);
+        gap: 24px;
+        justify-content: stretch;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+}
+/* MOBILE: center grid items only (paste at end of file) */
+@media (max-width: 740px) {
+    /* Section wrapper */
+        .section {
+            padding: 50px 0 16px;
+            font-family: "Poppins", system-ui, sans-serif;
+    
+        }
+
+    /* keep one column but center the card block in the container */
+    .grid {
+        /* ensure grid has one column that can shrink/grow */
+        grid-template-columns: minmax(280px, 420px) !important;
+        justify-content: center !important;
+        /* center the whole grid area */
+        justify-items: center !important;
+        /* center each card inside its cell */
+        gap: 20px !important;
+    }
+
+    /* if SpotlightCard has a width:100% style, allow it to shrink a bit so centered look works */
+    .grid>* {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    /* slightly reduce container padding so centered cards don't hit edges */
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}

@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
+
+.page {
+  font-family: var(--Font_Family, "Roboto Serif", sans-serif);
+  color: #333;
+  background: linear-gradient(135deg, #ffffff 0%, #f7ecff 40%, #e6f1ff 100%);
+  /* padding-bottom: 60px; */
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.heroSocialIcons {
+  position: absolute;
+  bottom: -58px;
+  right: 40px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.social {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.text { line-height: 1; }
+
+.linkedin:hover { background: #0a66c2; color: #fff; }
+.facebook:hover { background: #1877f2; color: #fff; }
+
+.header {
+  padding: 0 5.5rem;
+  margin: 30px auto 35px;
+}
+
+.title {
+  font-family: "Roboto Serif", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #436fb0;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.line {
+  width: 60px;
+  height: 2px;
+  margin-left: 12px;
+  background: #436fb0;
+}
+
+.description {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.grid {
+  max-width: 1280px;
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px;
+   padding-top: 20px;
+}
+
+.card {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+  margin-bottom: 60px;
+}
+
+.card:hover .img { transform: scale(1.08); }
+
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 3 / 3;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
+  background: #fff;
+  width: 88%;
+  text-align: center;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: #2d6ab1;
+  font-size: 16px;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.15);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(234, 221, 255, 0.96);
+  color: #000;
+  font-family: "Roboto Serif", serif;
+  font-size: 15px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border: 1px solid #c5b6ff;
+}
+
+.card:hover .overlay { opacity: 1; }
+
+.overlayText {
+  width: 100%;
+  color: rgba(98, 95, 95, 0.85);
+  font-size: 15px;
+  overflow: hidden;
+  font-family: "Roboto Serif", serif;
+}
+
+/* -------------------------------------------------------------
+   MOBILE VIEW — PERFECT ZIG-ZAG + PADDING
+------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Remove overlay on mobile */
+  .card:hover .overlay { opacity: 0 !important; }
+
+  .hero { height: 260px; }
+
+  .heroSocialIcons { bottom: -24px; right: 16px; }
+
+  .social {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  .title { font-size: 22px; }
+
+  .description { font-size: 16px; }
+
+  /* ⭐ Grid padding + 2 cards per row */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 100%;
+    padding: 0 20px;         /* ⭐ Overall padding added */
+  }
+
+  /* ⭐ Reset any desktop transform */
+  .card {
+    transform: none !important;
+    margin-bottom: 28px;
+    transition: transform 0.35s ease;
+  }
+
+  /* ⭐ Zig-zag up/down effect — NOW works perfectly */
+  .grid .card:nth-child(odd) {
+    transform: translateY(-12px) !important;   /* UP */
+  }
+
+  .grid .card:nth-child(even) {
+    transform: translateY(12px) !important;    /* DOWN */
+  }
+
+  .imageWrap {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .img { object-position: center; }
+
+  .caption {
+    bottom: -18px;
+    font-size: 14px;
+    padding: 8px 10px;
+    width: 92%;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+  }
+}

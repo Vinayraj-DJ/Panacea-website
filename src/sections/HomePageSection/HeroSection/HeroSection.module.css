@@ -1,0 +1,54 @@
+.heroWrapper {
+    position: relative;
+    width: 100%;
+border-radius: 10px;
+
+    height: 435px;
+   
+    overflow: hidden;
+}
+
+.backgroundImage {
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease;
+}
+
+.hoverLayer {
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+/* -------------- Mobile ≤ 768px ONLY -------------- */
+@media (max-width: 768px) {
+    .heroWrapper {
+        /* 16:12 == 4:3 aspect ratio */
+        aspect-ratio: 29/10;
+        width: 100%;
+        height: 150px;
+        /* don't also set a fixed height */
+        border-radius: 8px;
+        overflow: hidden;
+        background: transparent;
+        /* remove blue background */
+    }
+
+    .backgroundImage {
+        /* fill the frame; with matching ratio there is no crop/letterbox */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: opacity 600ms ease;
+    }
+}
+
+/* -------------- Extra small phones ≤ 360px -------------- */
+@media (max-width: 360px) {
+    .heroWrapper {
+        border-radius: 6px;
+    }
+}

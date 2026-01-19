@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap");
+
+:root{
+  --max-width: 1200px;
+  --accent-red: #ff3e3e;
+  --text: #0e1720;
+  --muted: rgba(0,0,0,0.55);
+}
+
+/* section wrapper */
+.section{
+  font-family: "Roboto Serif", serif;
+  padding: 36px 20px 80px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,250,248,0));
+}
+
+/* center content */
+.inner{
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* hero image */
+.heroWrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 22px;
+}
+.heroImage{
+  width:100%;
+  max-width: 1270px;         
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(11,30,60,0.06);
+  display:block;
+}
+
+/* heading */
+.headingWrap{
+  margin: 28px 0;
+  display:flex;
+  justify-content:center;
+  
+}
+.heading{
+  margin:0;
+  font-size: 42px;
+  line-height: 1.08;
+  color: var(--text);
+  text-align: center;
+  font-weight: 400;
+  font-family: "Roboto Serif", serif;
+}
+.highlight{
+  color: var(--accent-red);
+  font-weight: 500;
+  font-family: "Roboto Serif", serif;
+}
+
+/* grid area */
+.gridArea{
+  position: relative;
+  padding-top: 18px;
+  min-height: 320px;
+}
+
+/* decorative top-left square */
+.decorTopLeft{
+  position: absolute;
+  left: 123px;
+  top: -58px;
+  z-index: 2;
+  pointer-events: none;
+}
+.decorRight{
+  position: absolute;
+  right: 123px;
+  top: -58px;
+  z-index: 2;
+  pointer-events: none;
+}
+.decorSquare{
+  width: 136px;
+  height: 136px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 10px 22px rgba(11,30,60,0.06);
+}
+.decorIcon{ width:36px; height:36px;  }
+
+/* people grid */
+/* keep fixed cell size so layout matches the image; use justify-content: center for desktop */
+.peopleGrid{
+  display: grid;
+  grid-template-columns: repeat(7, 136px);
+  grid-template-rows: repeat(2, 136px);
+  gap: 18px;
+  justify-content: center;
+  list-style: none;
+  padding: 6% 0 0 0;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+}
+
+/* single item */
+.personItem{ display:flex; align-items:center; justify-content:center; }
+.personBox{
+  width: 136px;
+  height: 136px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.personBox:hover{
+  transform: translateY(-6px);
+  /* box-shadow: 0 10px 28px rgba(11,30,60,0.12);y */
+}
+.personImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* empty slot */
+/* .emptyBox{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: transparent;
+  border: 2px dashed rgba(0,0,0,0.06);
+  box-sizing: border-box;
+} */
+
+/* small tweaks to make some items appear slightly larger or offset:
+   you can add these classes inline in the items by setting bg and using CSS :nth-child
+   (we keep component unchanged — so we rely on structural placement)
+*/
+
+/* responsive: mid screens */
+@media (max-width: 1100px){
+  .peopleGrid{ grid-template-columns: repeat(6, 120px); gap: 14px; padding-top:6%; }
+  .personBox{ width:120px; height:120px; border-radius:10px; }
+  .decorSquare{ width:120px; height:120px; }
+  .peopleGrid{ grid-template-rows: repeat(2, 120px); }
+}
+
+/* tablet */
+@media (max-width: 800px){
+  .heroImage{ height: 240px; border-radius:10px; }
+  .heading{ font-size: 34px; text-align: left; margin-left: 12px; }
+  .peopleGrid{
+    grid-template-columns: repeat(4, 110px);
+    gap: 12px;
+    justify-content: start;
+    padding-left:12px;
+    grid-template-rows: none; /* allow grid to auto-flow rows */
+  }
+  .decorTopLeft{ left: 12px; top: 12px; }
+  .decorRight{ right: 12px; top: 12px; }
+  .decorSquare{ width:110px; height:110px; border-radius: 10px; }
+  .personBox{ width:110px; height:110px; border-radius:10px; }
+}
+
+/* mobile */
+@media (max-width: 460px){
+  .heroImage{ height: 160px; }
+  .heading{ font-size: 24px; text-align: left; margin-left: 10px; }
+  .peopleGrid{
+    grid-template-columns: repeat(3, 100px);
+    gap: 12px;
+    padding-left:10px;
+    justify-content: start;
+  }
+  .decorTopLeft{ left: 8px; top: 12px; }
+  .decorRight{ right: 8px; top: 12px; }
+  .decorSquare{ width:100px; height:100px; border-radius: 10px; }
+  .personBox{ width:100px; height:100px; border-radius:10px; }
+}

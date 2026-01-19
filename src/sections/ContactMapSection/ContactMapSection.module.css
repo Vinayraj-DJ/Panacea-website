@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap');
+
+:root{
+  --left-width: 324px;      /* matches screenshot measurements */
+  --right-width: 755px;     /* matches screenshot measurements */
+  --gap: 24px;
+  --card-bg: #f2f3f3;       /* light grey panel */
+  --card-border: rgba(0,0,0,0.06);
+  /* --accent: #993399;        */
+  --accent-80: rgba(153,51,153,0.8);
+  --text: #222;
+}
+
+/* Section outer spacing */
+.section {
+  padding: 28px 18px;
+  font-family: 'Roboto Serif', serif;
+  color: var(--text);
+}
+
+/* two-column container */
+.container {
+  display: grid;
+  grid-template-columns: var(--left-width) 1fr;
+  gap: var(--gap);
+  align-items: start;
+  max-width: calc(var(--left-width) + var(--right-width) + var(--gap));
+  margin: 0 auto;
+  
+}
+
+/* Left info card */
+.card {
+  width: var(--left-width);
+  background: var(--card-bg);
+  border-radius: 6px;
+  padding: 18px 24px;
+  border: 1px solid var(--card-border);
+  box-sizing: border-box;
+  
+}
+
+/* labels like "Name:", "Street:" */
+.label {
+  font-size: 18px;
+  line-height: 32px;   /* matches screenshot */
+  font-weight: 600;
+  margin: 0 0 6px;
+    font-family: 'Roboto Serif', serif;
+}
+
+/* values (paragraph text) */
+.value {
+  font-size: 18px;
+  line-height: 32px;
+  color: #5b5b5b;
+  margin-bottom: 14px;
+  font-family: 'Roboto Serif', serif;
+}
+
+/* meta block for phone/notes */
+.meta {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #5b5b5b;
+  font-size: 16px;
+  line-height: 28px;
+   font-family: 'Roboto Serif', serif;
+}
+.metaText{
+  font-family: 'Roboto Serif', serif;
+}
+
+.metaItem strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-family: 'Roboto Serif', serif;
+}
+
+/* Button area - centered and sized like your screenshot (approx 327 x 52) */
+.buttonWrap {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+    font-family: 'Roboto Serif', serif;
+}
+
+.directionsBtn {
+  display: inline-block;
+  width: 327px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--accent-80);
+  color: #993399; ;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  background: transparent;
+  box-sizing: border-box;
+  transition: background .12s ease, color .12s ease, transform .12s ease;
+    font-family: 'Roboto Serif', serif;
+}
+
+/* hover */
+.directionsBtn:hover{
+  background: rgba(153,51,153,0.06);
+  transform: translateY(-2px);
+}
+
+/* Map container */
+.mapWrap {
+  width: var(--right-width);
+  max-width: var(--right-width);
+  height: 536px; /* matches screenshot height */
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* iframe fills the container exactly */
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 980px) {
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    padding: 0 16px;
+      font-family: 'Roboto Serif', serif;
+  }
+  .card { width: 100%; }
+  .mapWrap { width: 100%; height: 360px; margin-top: 18px; }
+  .directionsBtn { width: 100%; max-width: 420px;    font-family: 'Roboto Serif', serif;}
+}

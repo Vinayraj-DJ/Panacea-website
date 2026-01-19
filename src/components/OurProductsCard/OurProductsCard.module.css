@@ -1,0 +1,203 @@
+.card {
+    width: 100%;
+    margin: 0;
+    /* spacing comes from parent grid gap */
+}
+
+/* ---- IMAGE FRAME ---- */
+.imageWrap {
+    position: relative;
+    width: 100%;
+    /* desktop size */
+    height: 100%;
+    /* desktop size */
+    border-radius: 16px;
+    overflow: hidden;
+    /* hide anything outside corners */
+    background-color: transparent !important;
+    /* no fallback color */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /* fill the frame fully */
+    object-position: center;
+    border-radius: 16px;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    padding: 28px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(33, 69, 120, .6) 0%, rgba(255, 255, 255, .65) 100%);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+
+.overlayText {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, .25);
+}
+
+/* CTA */
+.cta {
+    align-self: center;
+    border: 0;
+    padding: 11px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: #2d6ab1;
+    box-shadow: 0 10px 28px rgba(45, 106, 177, .35);
+    cursor: pointer;
+    pointer-events: auto;
+    /* clickable */
+}
+
+.cta:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Title */
+.title {
+    margin: 8px auto 0;
+    max-width: 287px;
+    text-align: center;
+    font-family: "Roboto Serif", serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #4070B1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Desktop hover/focus shows overlay */
+@media (hover: hover) {
+
+    .imageWrap:hover .overlay,
+    .imageWrap:focus-within .overlay {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile / JS toggle: when .open is on wrapper, show overlay */
+.open .overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* CTA remains clickable */
+.cta {
+    pointer-events: auto;
+}
+
+/* -------- Mobile layout (stacked) -------- */
+@media (max-width: 768px) {
+    .imageWrap {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+    }
+
+    .image {
+        border-radius: 14px;
+    }
+
+    .overlay {
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .overlayText {
+        font-size: 18px;
+    }
+
+    .cta {
+        font-size: 14px;
+        padding: 11px 25px;
+        border-radius: 12px;
+    }
+
+    .title {
+        max-width: 90%;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+/* ---------------- Mobile ≤ 768px ---------------- */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 0 0 24px;
+    }
+
+    .imageWrap {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        /* consistent, responsive */
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+
+    .image {
+        border-radius: 14px;
+        object-fit: cover;
+    }
+
+    /* Keep overlay smaller on phones or hide it if you prefer */
+    .overlay {
+        gap: 14px;
+        padding: 20px;
+    }
+
+    /* To hide overlay on phones, uncomment:
+     .overlay { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+  */
+
+    .overlayText {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    .cta {
+        font-size: 14px;
+        padding: 11px 25px;
+        border-radius: 12px;
+    }
+
+    .title {
+        max-width: 90%;
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

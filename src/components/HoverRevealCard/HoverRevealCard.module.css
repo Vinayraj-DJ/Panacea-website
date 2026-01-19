@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap");
+
+:root {
+  --radius: 8px;
+  --tile-shadow: 0 12px 28px rgba(16,24,40,.12);
+  --pill-shadow: 0 10px 22px rgba(16,24,40,.12);
+  --title-blue: #2f5fa8;
+  --ink: #0f172a;
+  --white: #fff;
+}
+
+/* Host card — size is controlled by parent or inline style.
+   Defaults match your Figma (≈305×309 via aspect-ratio). */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 305 / 309;     /* keeps proportions anywhere */
+  border-radius: var(--radius);
+  overflow: visible;           /* pill hangs out */
+  outline: none;
+  font-family: "Roboto Serif", ui-serif, Georgia, serif;
+}
+
+/* Default (image) */
+.imageState {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--tile-shadow);
+  transform: translateZ(0);
+  transition: opacity .25s ease;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover/Focus text state */
+.textState {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--tile-shadow);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease;
+  display: grid;
+  place-items: center;
+}
+
+.textBox {
+  width: calc(100% - 28px);
+  max-width: 92%;
+  position: relative;
+}
+
+.desc {
+  color: rgba(0,0,0,.75);
+  font-size: 15px;      /* Figma: 15px */
+  line-height: 1.6;     /* Figma: 160% */
+  font-weight: 400;
+  max-height: 16.5em;   /* protection if text is huge */
+  overflow: hidden;
+}
+
+/* Title pill (same element in both states) */
+.pill {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: -22px;            /* hangs below panel with shadow */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: var(--white);
+  color: var(--title-blue);
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: var(--pill-shadow);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Interactions — reveal lavender panel */
+.card:hover .textState,
+.card:focus-visible .textState {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card:hover .imageState,
+.card:focus-visible .imageState {
+  opacity: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .textState { transition: none; }
+  .imageState { transition: none; }
+}
+
+/* Small screens: allow taller card if needed */
+@media (max-width: 600px) {
+  .card { aspect-ratio: 3 / 4; }
+}

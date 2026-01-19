@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;700&display=swap");
+
+/* === SECTION BASE === */
+.section {
+  font-family: "Roboto Serif", serif;
+  background: transparent;
+  padding: 72px 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === HEADER === */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: start;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.heading {
+  font-size: 40px;
+  line-height: 1.6;
+  margin: 0;
+  color: #4b4b4b;
+  font-weight: 400;
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.topRightText {
+  justify-self: end;
+  margin: 6px 0 0 0;
+  max-width: 420px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* === MAIN CONTENT GRID === */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* === LEFT IMAGE SECTION === */
+.leftImageWrap {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: transparent; /* ✅ remove pink background entirely */
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); */
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px; /* soft rounded edges */
+  background: transparent;
+}
+
+/* === RIGHT LAVENDER CARD === */
+.featuresCard {
+  background: #ecd5f6;
+  border-radius: 24px;
+  padding: 32px 34px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.featuresTitle {
+  margin: 0 0 18px 0;
+  color: #395883;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.featureList {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.featureList li {
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #111;
+}
+
+/* === TRAINER IMAGE INSIDE LAVENDER CARD === */
+.sideImage {
+  position: absolute;
+  right: 24px;
+  bottom: 0;
+  width: 240px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+}
+
+/* === TABLET RESPONSIVE === */
+@media (max-width: 1024px) {
+  .header {
+    grid-template-columns: 1fr 360px;
+  }
+
+  .sideImage {
+    width: 200px;
+    right: 16px;
+  }
+}
+
+/* === MOBILE STACKED VIEW === */
+@media (max-width: 800px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .topRightText {
+    justify-self: start;
+    text-align: left;
+    font-size: 14px;
+    max-width: none;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .leftImageWrap {
+    border-radius: 24px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); */
+    background: transparent; /* ✅ still no pink on mobile */
+  }
+
+  .mainImage {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+  }
+
+  .featuresCard {
+    width: 100%;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .sideImage {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: block;
+    margin: 18px auto 0;
+    transform: none;
+    width: 180px;
+  }
+}
+
+/* === SMALL SCREENS === */
+@media (max-width: 420px) {
+  .heading {
+    font-size: 30px;
+    line-height: 1.35;
+  }
+
+  .featureList li {
+    font-size: 16px;
+  }
+
+  .featuresTitle {
+    font-size: 20px;
+  }
+}

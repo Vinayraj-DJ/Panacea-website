@@ -1,0 +1,62 @@
+.section {
+    padding: 30px 0 70px 0;
+    font-family: "Roboto", sans-serif;
+   
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 24px;
+    max-width: 1280px;
+}
+
+.heading {
+    margin: 0 0 24px 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* ✅ feature left + side cards right */
+    gap: 24px;
+    align-items: start;
+}
+
+/* Big feature card */
+.feature {
+    display: flex;
+}
+
+/* Smaller stacked news cards */
+.sideGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .layout {
+        grid-template-columns: 1fr;
+        /* stack vertically */
+    }
+
+    .sideGrid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .sideGrid>* {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 600px) {
+    .sideGrid {
+        flex-direction: column;
+    }
+}
