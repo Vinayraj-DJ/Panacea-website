@@ -1,8 +1,13 @@
 {
+  "extends": ["react-app"],
   "rules": {
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/no-redundant-roles": "off",
     "no-unused-vars": "off",
     "no-sparse-arrays": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
