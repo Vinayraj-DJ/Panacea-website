@@ -1,20 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-:root {
-    --Font_Brand: 'Suez One', serif;
-    --Font_Poppins: 'Poppins', sans-serif;
-    --Font_Mulish: 'Mulish', sans-serif;
-    --Font_Family: 'Roboto', sans-serif;
-    --accent: #436FB0;
-    --muted: rgba(0, 0, 0, 0.45);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
 
 .page {
     padding:1.75rem 0;
-    font-family: var(--Font_Family);
+    font-family: "Roboto Serif", serif;
     color: #333;
 }
 
@@ -30,7 +18,7 @@
 
 .projectTitle {
     display: flex;
-    font-family: var(--Font_Family);
+    font-family: "Roboto Serif", serif;
     justify-content: flex-end;
     font-size: 24px;
     font-weight: 600;
@@ -39,7 +27,7 @@
 }
 
 .projectDesc {
-    font-family: var(--Font_Family);
+    font-family: "Roboto Serif", serif;
     font-size: 20px;
     color: var(--muted);
     margin-bottom: 24px;
@@ -86,7 +74,7 @@
 }
 
 .techHeader {
-    font-family: var(--Font_Poppins);
+    font-family: "Roboto Serif", serif;
     color: var(--accent);
     font-size: 20px;
     font-weight: 500;
@@ -95,7 +83,7 @@
 }
 
 .techList {
-    font-family: var(--Font_Family);
+    font-family: "Roboto Serif", serif;
     list-style-type: disc;
     padding-left: 24px;
     margin-bottom: 28px;
@@ -109,13 +97,13 @@
 }
 
 .label {
-    font-family: var(--Font_Poppins);
+    font-family: "Roboto Serif", serif;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.85);
 }
 
 .value {
-    font-family: var(--Font_Family);
+    font-family: "Roboto Serif", serif;
     color: rgba(0, 0, 0, 0.6);
 }
 

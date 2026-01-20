@@ -11,7 +11,7 @@
     /* circle = width of its slot */
     position: relative;
     flex: 0 0 var(--size);
-    scroll-snap-align: center;
+    /* Removed scroll-snap-align to prevent interference with page scrolling */
     display: grid;
     place-items: center;
 }

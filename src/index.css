@@ -12,6 +12,14 @@ html, body, #root {
   font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  overscroll-behavior: contain;
+  /* Performance optimizations for smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  /* Ensure smooth scrolling works properly */
+  overflow-x: hidden;
 }
 /* Theme Variables */
 :root {
@@ -45,9 +53,10 @@ html, body, #root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
   font-family: var(--Font_Family);
   /* ✅ Montserrat applied globally */
+  /* Allow smooth scrolling to work properly */
+  scroll-behavior: smooth;
 }
 
 a {

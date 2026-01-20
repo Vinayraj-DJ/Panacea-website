@@ -1,19 +1,47 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./OurProductsSection.module.css";
 
 const products = [
   {
     title: "Child Care Management",
     img: "/images/products/childcaremanage.webp",
+    path: "/products/child-care-management"
   },
-  { title: "Influencer App", img: "/images/products/influencer-app.webp" },
-  { title: "Mutual Funds", img: "/images/products/mutual-funds.webp" },
-  { title: "Stocks App", img: "/images/products/stocks-app.webp" },
-  { title: "OMR Customization", img: "/images/products/omr-customization.webp" },
-  { title: "OMR Customization", img: "/images/products/partyrentals.webp" },
+  { 
+    title: "Influencer App", 
+    img: "/images/products/influencer-app.webp",
+    path: "/products/influencers-app"
+  },
+  { 
+    title: "Mutual Funds", 
+    img: "/images/products/mutual-funds.webp",
+    path: "/products/mutual-funds"
+  },
+  { 
+    title: "Stocks App", 
+    img: "/images/products/stocks-app.webp",
+    path: "/stox11"
+  },
+  { 
+    title: "OMR Customization", 
+    img: "/images/products/omr-customization.webp",
+    path: "/products/omr-customization"
+  },
+  { 
+    title: "Hyderabad Party Rentals", 
+    img: "/images/products/partyrentals.webp",
+    path: "/products/hyderabad-party-rentals"
+  },
 ];
 
 const OurProductsSection = () => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className={styles.section}>
       <div className={styles.bgWrapper}>
@@ -42,6 +70,8 @@ const OurProductsSection = () => {
               alt={p.title}
               className={styles.cardImg}
               loading="lazy"
+              onClick={() => handleProductClick(p.path)}
+              style={{ cursor: "pointer" }}
             />
           ))}
         </div>

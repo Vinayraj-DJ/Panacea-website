@@ -33,6 +33,9 @@
 .Main {
   width: 100%;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  /* Ensure smooth scrolling throughout the app */
+  -webkit-overflow-scrolling: touch;
 }
 
 ::-webkit-inner-spin-button,

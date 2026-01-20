@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
+
 /* Section wrapper */
 .section {
     padding: 50px 0 56px;
-font-family: (--Font_Family)
-   
+    font-family: "Roboto Serif", serif;
 }
 
 /* Centered container with gutters */
@@ -18,6 +19,7 @@ font-family: (--Font_Family)
     color: #436fb0;
     font-weight: 600;
     font-size: 24px;
+    font-family: "Roboto Serif", serif;
     position: relative;
     display: inline-block;
 }
@@ -36,6 +38,7 @@ font-family: (--Font_Family)
     margin: 0 0 24px 0;
     color: rgba(0, 0, 0, 0.55);
     font-size: 16px;
+    font-family: "Roboto Serif", serif;
     line-height: 1.7;
     max-width: 720px;
 }
@@ -53,6 +56,7 @@ font-family: (--Font_Family)
     background: none;
     font-size: 16px;
     font-weight: 500;
+    font-family: "Roboto Serif", serif;
     color: rgba(0, 0, 0, 0.55);
     cursor: pointer;
     transition: color 0.2s ease, background 0.2s ease;
@@ -103,7 +107,7 @@ font-family: (--Font_Family)
     /* Section wrapper */
         .section {
             padding: 50px 0 16px;
-            font-family: "Poppins", system-ui, sans-serif;
+            font-family: "Roboto Serif", serif;
     
         }
 

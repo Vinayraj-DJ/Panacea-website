@@ -142,12 +142,13 @@ body {
         align-items: flex-start;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
+        /* Removed scroll-snap-type to prevent interference with page scrolling */
         padding-bottom: 12px;
         margin: 0;
         /* hide scrollbar visuals but preserve scroll functionality */
         -ms-overflow-style: none;  /* IE/Edge */
         scrollbar-width: none;     /* Firefox */
+        scroll-behavior: smooth;
     }
 
     .cards::-webkit-scrollbar {
@@ -165,7 +166,7 @@ body {
         height: auto;
         display: block;
         border-radius: 24px;
-        scroll-snap-align: start;
+        /* Removed scroll-snap-align to prevent interference with page scrolling */
     }
 
     .link {
@@ -210,7 +211,7 @@ body {
         align-items: flex-start;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
+        /* Removed scroll-snap-type to prevent interference with page scrolling */
         padding-bottom: 10px;
         margin: 0;
         -ms-overflow-style: none;
@@ -231,6 +232,6 @@ body {
         height: auto;
         display: block;
         border-radius: 24px;
-        scroll-snap-align: start;
+        /* Removed scroll-snap-align to prevent interference with page scrolling */
     }
 }

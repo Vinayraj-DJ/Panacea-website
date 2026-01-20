@@ -40,17 +40,26 @@ const TopBar = () => {
 
   // Handle scroll/resize: sticky styles, toast positioning, floating button
   useEffect(() => {
+    let ticking = false;
+    
     const onScroll = () => {
-      const y = window.scrollY || window.pageYOffset;
-      setScrolled(y > 10);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY || window.pageYOffset;
+          setScrolled(y > 10);
 
-      // position the toast using ref (if present)
-      if (toastRef.current && topbarRef.current) {
-        const topbarHeight = topbarRef.current.offsetHeight || 78;
-        toastRef.current.style.top = `${topbarHeight + 6}px`;
+          // position the toast using ref (if present)
+          if (toastRef.current && topbarRef.current) {
+            const topbarHeight = topbarRef.current.offsetHeight || 78;
+            toastRef.current.style.top = `${topbarHeight + 6}px`;
+          }
+
+          if (prodHoverOpen) computeFloatingPosition();
+          
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      if (prodHoverOpen) computeFloatingPosition();
     };
 
     onScroll();
@@ -65,7 +74,7 @@ const TopBar = () => {
   // Close mobile menu and reset when route changes
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
     setMobileOpen(false);
     setMobileSub(null);

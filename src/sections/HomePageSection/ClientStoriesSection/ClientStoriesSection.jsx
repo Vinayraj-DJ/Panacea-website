@@ -25,7 +25,7 @@ const stories = [
   },
   {
     name: "Vinay Raj",
-    image: "/images/Home/vinayraj.webp",
+    image: "/images/Home/vinayraj2.webp",
     text: "Panacea delivered exactly what we needed — a powerful, user-friendly system that boosted our productivity.",
   },
   
