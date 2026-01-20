@@ -14,7 +14,7 @@
     overflow-x: auto;
     gap: 24px;
     /* Removed scroll-snap-type to prevent interference with page scrolling */
-    padding: 0 20px 12px 70px;
+    /* padding: 0 20px 12px 70px; */
     -ms-overflow-style: none;
     scrollbar-width: none;
     scroll-behavior: smooth;
