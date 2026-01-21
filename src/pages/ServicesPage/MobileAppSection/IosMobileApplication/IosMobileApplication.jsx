@@ -19,7 +19,7 @@ const IosMobileApplication = () => {
       {/* ✅ Hero Section */}
       <div className={styles.hero}>
         <HeroTitleChip
-          imageSrc="/images/services/ios1.png" // Replace with your image path
+          imageSrc="/images/services/ios1.webp" // Replace with your image path
           alt="iOS Mobile Application"
           title={"IOS Mobile\nApplication"}
         />
@@ -56,7 +56,7 @@ const IosMobileApplication = () => {
 
       {/* ✅ Split Feature 1 */}
       <SplitFeature
-        image="/images/services/ios2.png" // Replace with your image path
+        image="/images/services/ios2.webp" // Replace with your image path
         title="Why iOS App Development is Important and How Panacea Can Help You"
         body={'In today’s mobile-driven world, iOS App Development plays a crucial role in helping businesses connect with a premium and loyal audience. iOS apps are known for their superior performance, strong security, and exceptional user experience — making them the preferred choice for brands aiming to build trust and deliver quality.'}
         body2={'At Panacea IT Services, we create powerful, intuitive, and scalable iOS applications that align perfectly with your business goals. From ideation and UI/UX design to development and post-launch support, we handle the complete lifecycle with precision and creativity.'}
@@ -65,7 +65,7 @@ const IosMobileApplication = () => {
 
       {/* ✅ Split Feature 2 */}
       <SplitFeature
-        image="/images/services/ios3.png" // Replace with your image path
+        image="/images/services/ios3.webp" // Replace with your image path
         title="About iOS App Development Technologies"
         body={"iOS App Development Technologies combine innovation, performance, and security to deliver world-class mobile applications. The ecosystem primarily relies on Swift and Objective-C, supported by Apple's robust Xcode IDE. These technologies help build scalable, high-quality, and stable apps optimized for iPhones, iPads, and Apple Watches."}
         body2={'Advanced frameworks such as SwiftUI, ARKit, CoreML, and UIKit empower our developers to create intelligent, interactive, and visually appealing applications. At Panacea IT Services, we use these technologies to craft seamless, user-focused apps that deliver exceptional performance and enhance your brand’s digital presence.'}
@@ -97,7 +97,7 @@ const IosMobileApplication = () => {
               "iOS users tend to spend more on apps and in-app purchases, giving businesses better monetization opportunities and higher ROI.",
           },
         ]}
-        illustrationSrc="/images/services/ios4.png" // Replace with your image path
+        illustrationSrc="/images/services/ios4.webp" // Replace with your image path
         illustrationAlt="iOS App Development illustration"
         imageLeft={true}
       />

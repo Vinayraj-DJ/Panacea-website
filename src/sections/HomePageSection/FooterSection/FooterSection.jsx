@@ -721,8 +721,9 @@ export default function FooterSection({
               <div className={styles.contactRow}>
                 <MapPinIcon className={styles.iconSmall} />
                 <div>
-                  <p className={styles.contactMain}>Sanath Nagar</p>
-                  <p className={styles.contactSub}>Our headquarters</p>
+                  <p className={styles.contactMain}>100 Feet Road, Ayyappa Society</p>
+                  <p className={styles.contactMain}>Madhapur, Hyderabad-500072</p>
+                  <p className={styles.contactSub}>Near Hitech City | Narayana School Beside</p>
                 </div>
               </div>
             </div>

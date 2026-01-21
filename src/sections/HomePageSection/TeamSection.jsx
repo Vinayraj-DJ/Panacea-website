@@ -6,7 +6,6 @@ const TEAM = [
   { name: "Kotla Darshan", role: "Front End Designer", photo: "/images/Home/darshan.webp" },
   { name: "Harika", role: "Mobile App Developer", photo: "/images/Home/harika.webp" },
   { name: "Varun", role: "UI/UX Designer", photo: "/images/Home/varun.webp" },
-  { name: "Surekha", role: "", photo: "/images/Home/sureka.webp" },
   { name: "Pavankalyan", role: "Technical Lead & Digital Marketing", photo: "/images/Home/pavan.webp" },,
   { name: "Deekshith", role: "Backend Developer ", photo: "/images/Home/deekshith2.webp" },
    { name: "Vinay Raj", role: "Front End Developer", photo: "/images/Home/vinayraj2.webp" }
