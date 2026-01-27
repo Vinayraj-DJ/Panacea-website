@@ -41,7 +41,7 @@ body {
     font-size: 36px;
     font-weight: 500;
     margin-bottom: 15px;
-    
+    font-family: "Roboto Serif", serif;
 }
 
 .description {
@@ -115,6 +115,7 @@ body {
     .heading {
         font-size: 24px;
         margin-bottom: 10px;
+        font-family: "Roboto Serif", serif;
     }
 
     .description {
@@ -193,6 +194,7 @@ body {
 
     .heading {
         font-size: 22px;
+        font-family: "Roboto Serif", serif;
     }
 
     .description {

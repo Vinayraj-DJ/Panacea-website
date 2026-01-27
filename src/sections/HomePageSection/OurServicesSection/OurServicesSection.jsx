@@ -29,7 +29,7 @@ const OurServicesSection = () => {
           className={styles.bgImage}
         />
         <div className={styles.textBox}>
-          <h2 className={styles.heading}>OUR SERVICES</h2>
+          <h2 className={styles.heading}>Our Services</h2>
           <p className={styles.description}>
             We provide innovative, tailor-made solutions to meet your business
             needs. Our team delivers high-quality services with a focus on

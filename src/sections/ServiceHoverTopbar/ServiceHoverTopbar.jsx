@@ -1,27 +1,33 @@
 
 // ServiceHoverTopbar.jsx
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import styles from "./ServiceHoverTopbar.module.css";
 import { FiChevronDown } from "react-icons/fi";
-import servicesImg from "../../assets/images/topbarserviceshoverimage.png";
+import serviceImage from "../../assets/images/topbarserviceshoverimage.png";
 
-const services = [
+// Service list with separate paths
+const allServices = [
   { title: "Application Development", path: "/services/application-development" },
-  { title: "Digital Marketing",       path: "/services/digital-marketing" },
-  { title: "Clouds & DevOps",         path: "/services/clouds-and-devops" },
-  { title: "Website Development",     path: "/services/website-development" },
-  { title: "Mobile Application",      path: "/services/mobile-application" },
-  { title: "Testing Automation",      path: "/services/testing-automation" },
-  { title: "CMS & E-Commerce",        path: "/services/cms-ecommerce" },
-  { title: "Website Designing",       path: "/services/website-designing" }
+  { title: "Website Development", path: "/services/website-development" },
+  { title: "Mobile Application", path: "/services/mobile-application" },
+  { title: "Website Designing", path: "/services/website-designing" },
+  { title: "CMS & E-Commerce", path: "/services/cms-ecommerce" },
+  { title: "Digital Marketing", path: "/services/digital-marketing" },
+  { title: "Cloud & DevOps", path: "/services/clouds-devops" },
+  { title: "Testing Automation", path: "/services/testing-automation" },
 ];
 
-const ServiceHoverTopbar = () => {
+// Helper to split array into equal columns
+function chunkArray(arr, parts) {
+  const out = Array.from({ length: parts }, () => []);
+  arr.forEach((item, i) => out[i % parts].push(item));
+  return out;
+}
+
+export default function ServiceHoverTopbar() {
   const [open, setOpen] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const panelRefs = useRef([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -29,7 +35,6 @@ const ServiceHoverTopbar = () => {
     const handler = (e) => setIsMobile(e.matches);
 
     handler(mq);
-
     if (mq.addEventListener) {
       mq.addEventListener("change", handler);
       return () => mq.removeEventListener("change", handler);
@@ -39,8 +44,7 @@ const ServiceHoverTopbar = () => {
     }
   }, []);
 
-  // ensure panelRefs length matches services
-  panelRefs.current = services.map((_, i) => panelRefs.current[i] ?? null);
+  const columns = chunkArray(allServices, 3);
 
   const toggle = (idx) => setOpen((prev) => (prev === idx ? null : idx));
   const onKeyToggle = (e, idx) => {
@@ -50,61 +54,52 @@ const ServiceHoverTopbar = () => {
     }
   };
 
+  /* ---------------- DESKTOP ---------------- */
   if (!isMobile) {
-    // DESKTOP/TABLET view (image + grid)
     return (
       <div className={styles.container}>
         <div className={styles.inner}>
           <h3 className={styles.heading}>Explore Services</h3>
 
           <div className={styles.content}>
-            <Link to="/services" className={styles.imageWrapper} aria-label="View all services">
-              <img src={servicesImg} alt="Services showcase" />
-            </Link>
+            <div className={styles.imageWrapper}>
+              <img src={serviceImage} alt="Service showcase" />
+            </div>
 
             <div className={styles.serviceGrid}>
-              {services.map((s) => (
-                <Link
-                  to={s.path}
-                  className={`${styles.serviceItem} ${styles.serviceLink}`}
-                  key={s.title}
-                >
-                  <h4 className={styles.serviceTitle}>
-                    <span className={styles.serviceTitleText}>{s.title}</span>
-                    <span className={styles.serviceArrow} aria-hidden="true">→</span>
-                  </h4>
-                </Link>
+              {columns.map((col, ci) => (
+                <ul key={ci} className={styles.colList}>
+                  {col.map((s) => (
+                    <li key={s.title} className={styles.itemRow}>
+                      <a href={s.path} className={styles.itemLink}>
+                        <span className={styles.itemText}>{s.title}</span>
+                        <span aria-hidden="true" className={styles.itemArrow}>→</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               ))}
             </div>
-          </div>
-
-          <div className={styles.viewAllRowDesktop}>
-            <button
-              className={styles.viewAllBtnDesktop}
-              onClick={() => navigate("/services")}
-              type="button"
-            >
-              {/* View all services → */}
-            </button>
           </div>
         </div>
       </div>
     );
   }
 
-  // MOBILE accordion view
+  /* ---------------- MOBILE ---------------- */
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
         <h3 className={styles.heading}>Explore Services</h3>
 
         <div className={styles.mobileWrap}>
+          {/* mobile image (matches services topbar style) */}
           <div className={styles.imageWrapperMobile} aria-hidden="true">
-            <img src={servicesImg} alt="Service" />
+            <img src={serviceImage} alt="Services" />
           </div>
 
           <ul className={styles.accordion}>
-            {services.map((s, idx) => {
+            {allServices.map((s, idx) => {
               const opened = open === idx;
               return (
                 <li
@@ -114,10 +109,10 @@ const ServiceHoverTopbar = () => {
                   <button
                     type="button"
                     className={`${styles.accHeader} ${opened ? styles.open : ""}`}
+                    aria-expanded={opened}
+                    aria-controls={`srv-panel-${idx}`}
                     onClick={() => toggle(idx)}
                     onKeyDown={(e) => onKeyToggle(e, idx)}
-                    aria-expanded={opened}
-                    aria-controls={`svc-panel-${idx}`}
                   >
                     <span className={styles.accTitle}>{s.title}</span>
                     <FiChevronDown
@@ -127,7 +122,7 @@ const ServiceHoverTopbar = () => {
                   </button>
 
                   <div
-                    id={`svc-panel-${idx}`}
+                    id={`srv-panel-${idx}`}
                     ref={(el) => (panelRefs.current[idx] = el)}
                     className={styles.accPanel}
                     style={
@@ -138,13 +133,14 @@ const ServiceHoverTopbar = () => {
                     role="region"
                   >
                     <p className={styles.accBody}>
+                      Learn more about <strong>{s.title}</strong> at:
+                      <br />
                       <span className={styles.pathText}>{s.path}</span>
                     </p>
-
                     <div className={styles.panelFooter}>
-                      <Link to={s.path} className={styles.visitLink}>
+                      <a className={styles.visitLink} href={s.path}>
                         View details →
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </li>
@@ -153,18 +149,12 @@ const ServiceHoverTopbar = () => {
           </ul>
 
           <div className={styles.viewAllRowMobile}>
-            <button
-              className={styles.viewAllBtnMobile}
-              onClick={() => navigate("/services")}
-              type="button"
-            >
+            <a className={styles.viewAllBtnMobile} href="/services">
               View all services →
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default ServiceHoverTopbar;
+}
