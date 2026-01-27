@@ -713,7 +713,7 @@ export default function FooterSection({
               <div className={styles.contactRow}>
                 <PhoneIcon className={styles.iconSmall} />
                 <div>
-                  <p className={styles.contactMain}>8686818384 / 9347959536</p>
+                  <p className={styles.contactMain}>9963917712 / 9347959536</p>
                   <p className={styles.contactSub}>Call us anytime</p>
                 </div>
               </div>

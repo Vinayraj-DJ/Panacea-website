@@ -1,5 +1,5 @@
-/* Import Montserrat font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Import Roboto Serif font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;600;700&display=swap');
 
 
 
@@ -9,7 +9,7 @@ html, body, #root {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
-  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: 'Roboto Serif', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -38,7 +38,7 @@ html, body, #root {
   --Utility_Color1: #ecf4ff;
 
   /* Font family */
-  --Font_Family: 'Montserrat', sans-serif;
+  --Font_Family: 'Roboto Serif', serif;
 
   /* Font Sizes */
   --Font_Size_1: 12px;

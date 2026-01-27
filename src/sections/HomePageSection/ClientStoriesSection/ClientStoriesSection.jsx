@@ -4,7 +4,7 @@ import styles from "./ClientStoriesSection.module.css";
 
 const stories = [
   {
-    name: "Kotla Darshan",
+    name: "Darshan",
     image: "/images/Home/darshan.webp",
     text: "Panacea helped us streamline our inventory processes, giving our team more time to focus on growth.",
   },
@@ -51,3 +51,6 @@ const ClientStoriesSection = () => {
 };
 
 export default ClientStoriesSection;
+
+
+

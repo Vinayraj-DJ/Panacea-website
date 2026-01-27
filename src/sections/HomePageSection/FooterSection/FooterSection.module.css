@@ -241,8 +241,7 @@
     width: 100%;
     background: var(--bg);
     color: var(--white);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-        Arial;
+    font-family: "Roboto Serif", serif;
 }
 
 /* LOGO + NAME (match topbar style) */

@@ -1,6 +1,6 @@
-/* Uses your global Montserrat variables:
+/* Uses your global Roboto Serif variables:
    --Font_Family, --Font_Size_1..5
-   Make sure your global CSS (with the @import for Montserrat) is loaded once. */
+   Make sure your global CSS (with the @import for Roboto Serif) is loaded once. */
 
 :root {
   --tick-size-desktop: 24px; /* Figma: 24x24 */

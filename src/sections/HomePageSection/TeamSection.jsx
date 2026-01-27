@@ -3,14 +3,12 @@ import React, { useRef, useEffect, useState } from "react";
 import styles from "./TeamSection.module.css";
 
 const TEAM = [
-  { name: "Kotla Darshan", role: "Front End Designer", photo: "/images/Home/darshan.webp" },
+  { name: "Darshan", role: "Front End Designer", photo: "/images/Home/darshan.webp" },
   { name: "Harika", role: "Mobile App Developer", photo: "/images/Home/harika.webp" },
   { name: "Varun", role: "UI/UX Designer", photo: "/images/Home/varun.webp" },
   { name: "Pavankalyan", role: "Technical Lead & Digital Marketing", photo: "/images/Home/pavan.webp" },,
   { name: "Deekshith", role: "Backend Developer ", photo: "/images/Home/deekshith2.webp" },
-   { name: "Vinay Raj", role: "Front End Developer", photo: "/images/Home/vinayraj2.webp" }
-  ,
-  
+   { name: "Vinay Raj", role: "Front End Developer", photo: "/images/Home/vinayraj2.webp" } 
 ];
 
 const TOAST_DURATION = 4000; // ms (4 seconds)
